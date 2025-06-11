@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Page</title>
+  <link rel="stylesheet" href="research.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div id="splash-screen">
+        <img src="images/simbiots-logo.png" alt="Simbiots" class="splash-logo" />
+      </div> 
+  <header class="navbar">
+    <div class="navbar-left" onclick="toggleLeftSection()">
+      <div class="toggle-container">
+        <div class="toggle-block profile-block active">
+          <img src="images/patnaiksir.jpg" alt="Dr Prasad Patnaik B S V" class="prof-img" />
+          <span class="prof-name">Dr Prasad Patnaik B S V</span>
+        </div>
+        <div class="toggle-block iitm-block">
+          <img src="images/iitmlogo.png" alt="IIT Madras Logo" class="iitlogo" />
+          <div class="iit-text">
+            <p class="iit-heading">INDIAN INSTITUTE OF TECHNOLOGY MADRAS</p>
+            <p class="dept-name">Department of Applied Mechanics & BioMedical</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <nav class="navbar-right" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#">Research</a>
+      <a href="#">People</a>
+      <a href="#">Publications</a>
+      <a href="#">Apply Now</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </header>
+
+  
+    <div class="first-bg">
+    <h1 class="section-title">Our Research</h1>
+    <p class="section-description">Explore our impactful research projects.</p>
+    </div>
+    <section class="research-section"></section>
+    <div class="cards-container">
+      <div class="research-card">
+        <img src="images/research1.png" alt="Schematic of energy balance for a growing bubble in the bulk liquid.">
+        <h2>Bubble growth and departure behavior in subcooled flow boiling regime</h2>
+        <p>Understanding the detailed dynamics of bubble ebullition cycle is central to effectively exploit coolant phase change in subcooled flow boiling. In the present study, the bubble growth 
+            rate and the bubble departure mechanism in subcooled flow boiling conditions are investigated.</p>
+        <a href="https://pubs.aip.org/aip/pof/article/35/5/053327/2891409" class="read-more">Read More</a>
+      </div>
+      <div class="research-card">
+        <img src="images/research2.png" alt="Histological 2D image stack of Resected Aneurysm dome">
+        <h2>Histopathology-based near-realistic arterial wall reconstruction of a patient-specific cerebral aneurysm for fluid-structure interaction studies</h2>
+        <p>A 3D geometric model of the blood-flow domain of an anterior communicating artery (ACoA) aneurysm is extracted from the CTA of a patient that was surgically clipped. After safely clipping the aneurysm, the fundus of the aneurysm beyond the clip was cut and extracted.</p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0010482524016640" class="read-more">Read More</a>
+      </div>
+      <div class="research-card">
+        <img src="images/research3.png" alt="Processes and corresponding tools">
+        <h2>Patient-specific arterial wall generation for intracranial aneurysms with a variable and a near realistic vessel wall thickness for FSI studies</h2>
+        <p>In the present study, a novel methodology is developed to geometrically model variable vessel wall thickness for the lumen isosurface extracted from CT scan slices of patient-specific 
+            aneurysms based on clinical and histopathological inputs.</p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S1350453324001127" class="read-more">Read More</a>
+      </div>
+      <div class="research-card">
+        <img src="images/research4.png" alt="Research 4">
+        <h2>Biomedical & Applied Mechanics.</h2>
+        <p>Biomedical & Applied Mechanics.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2015 Department of Applied Mechanics, IIT Madras. All rights reserved.
+  </footer>
+  <script src="research.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

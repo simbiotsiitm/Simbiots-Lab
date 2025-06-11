@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor Homepage</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/script.js"></script>
+  <style>
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-slide {
+      animation: fadeSlide 1s ease-out;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Top Logo Banner -->
+  <section class="bg-gray-200 py-4 animate-fade-slide">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4">
+      <img src="assets/images/iitm_logo.png" alt="IIT Madras Logo" class="h-16">
+      <div class="text-center">
+        <h1 class="text-xl font-bold">Indian Institute of Technology Madras</h1>
+        <p class="text-sm">Department of XYZ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navbar with responsive toggle -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <img src="assets/images/prof.jpg" alt="Professor" class="h-12 w-12 rounded-full">
+        <span class="font-semibold text-lg">Prof. John Doe</span>
+      </div>
+      <div class="md:hidden">
+        <button id="menuBtn" class="text-gray-700 focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <ul id="navLinks" class="hidden md:flex gap-6 font-medium">
+        <li><a href="#about" class="hover:text-blue-600">About</a></li>
+        <li><a href="#research" class="hover:text-blue-600">Research</a></li>
+        <li><a href="#people" class="hover:text-blue-600">People</a></li>
+        <li><a href="#gallery" class="hover:text-blue-600">Gallery</a></li>
+      </ul>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
+      <ul class="space-y-2">
+        <li><a href="#about" class="block text-gray-700">About</a></li>
+        <li><a href="#research" class="block text-gray-700">Research</a></li>
+        <li><a href="#people" class="block text-gray-700">People</a></li>
+        <li><a href="#gallery" class="block text-gray-700">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Background Video Section 
+<section class="relative h-[60vh] w-full overflow-hidden">
+  <video autoplay loop muted playsinline class="absolute w-full h-full object-cover">
+    <source src="assets/video/lab-intro.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-center">
+    <div class="text-white px-6">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 animate-fadeInUp">Welcome to Our Research Lab</h2>
+      <p class="text-lg md:text-xl animate-fadeInUp delay-100">Innovating the future, one discovery at a time.</p>
+    </div>
+  </div>
+</section>-->
+ <!-- Intro Section with Video -->
+ <section class="relative h-96 overflow-hidden flex items-center justify-center">
+  <video autoplay muted loop class="absolute w-full h-full object-cover z-0">
+    <source src="assets/video/lab-video.mp4" type="video/mp4" />
+  </video>
+  <div class="relative z-10 text-white text-center p-4 bg-black bg-opacity-50 rounded">
+    <h2 class="text-2xl font-bold">Welcome to Our Research Lab</h2>
+    <p class="text-sm mt-2">Exploring AI, Systems, and Human-Centered Innovation</p>
+  </div>
+</section>
+
+  <!-- News Cards Section -->
+  <section class="py-10 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">In the News</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow p-4">
+          <img src="assets/images/news1.png" alt="News Logo" class="h-10 mb-2">
+          <h3 class="font-semibold">Headline One</h3>
+          <p class="text-sm text-gray-500">Jan 10, 2024</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4">
+          <img src="assets/images/news2.png" alt="News Logo" class="h-10 mb-2">
+          <h3 class="font-semibold">Headline Two</h3>
+          <p class="text-sm text-gray-500">Feb 5, 2024</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4">
+          <img src="assets/images/news3.png" alt="News Logo" class="h-10 mb-2">
+          <h3 class="font-semibold">Headline Three</h3>
+          <p class="text-sm text-gray-500">Mar 2, 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lab Facts -->
+  <section class="py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">A Few Facts About Our Lab</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl font-bold">4</p>
+          <p>Collaborations</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold">43</p>
+          <p>Scholars</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold">99</p>
+          <p>Publications</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold">13</p>
+          <p>Sponsored Projects</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact and Location -->
+  <section class="py-10 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">Contact Us</h2>
+      <div class="flex flex-col md:flex-row gap-6">
+        <div class="md:w-1/2">
+          <p><strong>Phone:</strong> 044-2257-4068</p>
+          <p><strong>Email:</strong> bsvp@iitm.ac.in</p>
+        </div>
+        <div class="md:w-1/2">
+          <img src="assets/images/map.png" alt="Map" class="w-full rounded-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
+
