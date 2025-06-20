@@ -10,8 +10,8 @@ window.addEventListener("load", function () {
     setTimeout(function () {
       splash.style.display = "none";
       document.getElementById("main-content").style.display = "block";
-    }, 2000); // matches fade-out duration
-  }, 2000); // splash visible for 2s before fade starts
+    }, 4000); // matches fade-out duration
+  }, 4000); // splash visible for 2s before fade starts
 });
 
 setTimeout(function () {
@@ -47,3 +47,19 @@ function toggleMenu() {
   navLinks.classList.toggle('show');
 }
 
+
+// Dark/Light theme toggle
+function toggleTheme() {
+  document.body.classList.toggle('dark-theme');
+  const switchEl = document.getElementById('theme-switch');
+  switchEl.classList.toggle('active', document.body.classList.contains('dark-theme'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const switchEl = document.getElementById('theme-switch');
+  if (document.body.classList.contains('dark-theme')) {
+    switchEl.classList.add('active');
+  } else {
+    switchEl.classList.remove('active');
+  }
+});

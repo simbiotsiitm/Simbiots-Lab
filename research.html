@@ -7,10 +7,15 @@
   <link rel="stylesheet" href="research.css" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add('dark-theme');
+    });
+  </script>
 </head>
 <body>
     <div id="splash-screen">
-        <img src="images/simbiots-logo.png" alt="Simbiots" class="splash-logo" />
+        <img src="images/logo_round_gold-removebg-preview.png" alt="Simbiots" class="splash-logo" />
       </div> 
   <header class="navbar">
     <div class="navbar-left" onclick="toggleLeftSection()">
@@ -34,54 +39,67 @@
     <nav class="navbar-right" id="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="#">Research</a>
-      <a href="#">People</a>
+      <a href="research.html">Research</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">People</a>
+        <div class="dropdown-content">
+          <a href="#">Collaborators</a>
+          <a href="#">Team</a>
+          <a href="#">Alumni</a>
+        </div>
+      </div>
       <a href="#">Publications</a>
+      <a href="gallery.html">Gallery</a>
       <a href="#">Apply Now</a>
       <a href="#">Contact Us</a>
     </nav>
+    <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
+      <div class="switch-track">
+        <div class="switch-thumb"></div>
+      </div>
+    </div>
   </header>
 
   
-    <div class="first-bg">
-    <h1 class="section-title">Our Research</h1>
-    <p class="section-description">Explore our impactful research projects.</p>
+  <main>
+    <section class="hero-section">
+      <div class="hero-bg" id="hero-bg">
+        <img src="images/research-bg.jpg" alt="Research Background" class="hero-bg-img" id="hero-bg-img">
+        <video class="hero-bg-video" id="hero-bg-video" autoplay muted loop playsinline style="display:none;">
+          <source src="" id="hero-bg-video-source" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-flex">
+        <div class="bulb-flex">
+        <div class="hero-gif-col hero-research-text-col">
+          <span class="hero-research-text">OUR RESEARCH</span>
+        </div>
+        <img src="images/research-bg-bulb.png" alt="Research Bulb" class="research-bulb-img" />
+        </div>
+        <div class="hero-heading-col" id="hero-heading-col" style="display:none;">
+          <h1 class="hero-title" id="hero-title"></h1>
+        </div>
+      </div>
+      <div class="hero-subtitle" id="hero-subtitle">Explore our impactful research</div>
+    </section>
+    <div class="research-toggle">
+      <button class="toggle-btn" data-section="cardio">Cardio Vascular</button>
+      <button class="toggle-btn" data-section="cerebro">Cerebro Vascular</button>
     </div>
-    <section class="research-section"></section>
-    <div class="cards-container">
-      <div class="research-card">
-        <img src="images/research1.png" alt="Schematic of energy balance for a growing bubble in the bulk liquid.">
-        <h2>Bubble growth and departure behavior in subcooled flow boiling regime</h2>
-        <p>Understanding the detailed dynamics of bubble ebullition cycle is central to effectively exploit coolant phase change in subcooled flow boiling. In the present study, the bubble growth 
-            rate and the bubble departure mechanism in subcooled flow boiling conditions are investigated.</p>
-        <a href="https://pubs.aip.org/aip/pof/article/35/5/053327/2891409" class="read-more">Read More</a>
+    <section class="research-content-section">
+      <div class="research-content-list" id="research-content-list">
+        <!-- cards -->
       </div>
-      <div class="research-card">
-        <img src="images/research2.png" alt="Histological 2D image stack of Resected Aneurysm dome">
-        <h2>Histopathology-based near-realistic arterial wall reconstruction of a patient-specific cerebral aneurysm for fluid-structure interaction studies</h2>
-        <p>A 3D geometric model of the blood-flow domain of an anterior communicating artery (ACoA) aneurysm is extracted from the CTA of a patient that was surgically clipped. After safely clipping the aneurysm, the fundus of the aneurysm beyond the clip was cut and extracted.</p>
-        <a href="https://www.sciencedirect.com/science/article/pii/S0010482524016640" class="read-more">Read More</a>
-      </div>
-      <div class="research-card">
-        <img src="images/research3.png" alt="Processes and corresponding tools">
-        <h2>Patient-specific arterial wall generation for intracranial aneurysms with a variable and a near realistic vessel wall thickness for FSI studies</h2>
-        <p>In the present study, a novel methodology is developed to geometrically model variable vessel wall thickness for the lumen isosurface extracted from CT scan slices of patient-specific 
-            aneurysms based on clinical and histopathological inputs.</p>
-        <a href="https://www.sciencedirect.com/science/article/pii/S1350453324001127" class="read-more">Read More</a>
-      </div>
-      <div class="research-card">
-        <img src="images/research4.png" alt="Research 4">
-        <h2>Biomedical & Applied Mechanics.</h2>
-        <p>Biomedical & Applied Mechanics.</p>
-        <a href="#" class="read-more">Read More</a>
-      </div>
-    </div>
-  </section>
+      <button class="back-btn" id="back-btn" style="display:none;">Back</button>
+      <button class="load-more-btn" id="load-more-btn">Load More</button>
+    </section>
+  </main>
 
   <footer class="footer">
     © 2015 Department of Applied Mechanics, IIT Madras. All rights reserved.
   </footer>
   <script src="research.js"></script>
   <script src="script.js"></script>
+  <script src="research-toggle.js"></script>
 </body>
 </html>

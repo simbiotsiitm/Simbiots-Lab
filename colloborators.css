@@ -1,0 +1,303 @@
+/* Basic Reset */
+body {
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #181c2b;
+  color: #eaf6ff;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background: #232946;
+  padding: 0.7em 0;
+  box-shadow: 0 2px 12px #0002;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+.navbar-title {
+  font-family: 'Bree Serif', serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #ffd700;
+}
+.theme-switch {
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.theme-switch .fa-sun { display: none; }
+body.light-theme .theme-switch .fa-moon { display: none; }
+body.light-theme .theme-switch .fa-sun { display: inline; }
+body.dark-theme .theme-switch .fa-moon { display: inline; }
+body.dark-theme .theme-switch .fa-sun { display: none; }
+
+/* Hero Section */
+.collab-hero {
+  width: 100%;
+  padding: 64px 0 32px 0;
+  background: none;
+}
+.collab-hero-flex {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.collab-heading-col {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.collab-title {
+  font-family: 'Montserrat', 'Bree Serif', serif;
+  font-size: 2.8rem;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ff512f, #1fa2ff, #a6ffcb);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: collabGradientMove 3s ease-in-out infinite alternate, collabScale 2.5s infinite alternate cubic-bezier(.4,0,.2,1);
+  text-shadow: 2px 4px 16px #0005, 0 1px 2px #fff3;
+  filter: drop-shadow(0 2px 8px #00eaff44);
+}
+
+@keyframes collabGradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+@keyframes collabScale {
+  0% { transform: scale(1);}
+  100% { transform: scale(1.06);}
+}
+
+/* Handshake Image Frame */
+.collab-img-col {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.collab-img-frame {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700 0%, #00eaff 100%);
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 32px #0004;
+  transition: background 0.4s;
+  margin-top: 30px;
+}
+.collab-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: transparent;
+  display: block;
+}
+
+/* Light Theme Overrides */
+body.light-theme {
+  background: #f7fafc;
+  color: #233554;
+}
+body.light-theme .navbar {
+  background: #e3e6ee;
+  box-shadow: 0 2px 12px #aaa2;
+}
+body.light-theme .navbar-title {
+  color: #003b5e;
+}
+body.light-theme .collab-title {
+  background: linear-gradient(90deg, #0684dd, #262fac, #a6ffcb, #ff512f, #dd2476);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* fallback */
+  /* ...animation and shadow... */
+}
+body.light-theme .collab-img-frame {
+  background: linear-gradient(135deg, #00eaff 0%, #ffd700 100%);
+  box-shadow: 0 4px 24px #ffd70022;
+}
+body.light-theme .collab-img {
+  background: #fff;
+}
+body.dark-theme .collab-img {
+  background: #000000;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .collab-hero-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .collab-heading-col, .collab-img-col {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .collab-img-frame {
+    width: 140px;
+    height: 140px;
+  }
+  .collab-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+.collab-cards-section {
+  width: 100%;
+  overflow: hidden;
+  margin: 48px 0 0 0;
+  padding: 32px 20px 32px 20px;
+  background: none;
+}
+
+.collab-carousel {
+  display: flex;
+  gap: 32px;
+  transition: transform 0.7s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+.collab-card {
+  background: #232946;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #0003;
+  min-width: 270px;
+  max-width: 270px;
+  flex: 0 0 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 18px 18px 18px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+  cursor: pointer;
+}
+.collab-card:hover {
+  transform: translateY(-12px) scale(1.04) rotate(-2deg);
+  box-shadow: 0 8px 32px #ffd70055, 0 2px 12px #00eaff33;
+  z-index: 2;
+}
+
+.collab-card-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffd700;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 12px #ffd70044;
+  background: #fff;
+}
+
+.collab-card-title {
+  font-family: 'Montserrat', 'Bree Serif', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.collab-card-designation {
+  font-size: 1em;
+  color: #eaf6ff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.collab-card-workplace {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.collab-card-workplace-img {
+  width: 60px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 6px #0002;
+}
+
+.collab-card-link {
+  margin-top: 6px;
+  color: #00eaff;
+  text-decoration: none;
+  font-size: 0.98em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.collab-card-link:hover {
+  color: #ffd700;
+}
+
+body.light-theme .collab-card {
+  background: #fff;
+  color: #233554;
+  box-shadow: 0 4px 24px #1fa2ff33, 0 2px 8px #ffd70022;
+  border: 1px solid #e3e6ee;
+}
+body.light-theme .collab-card-title {
+  color: #1fa2ff;
+  text-shadow: 0 2px 8px #ffd70033;
+}
+body.light-theme .collab-card-img {
+  border-color: #1fa2ff;
+  box-shadow: 0 2px 12px #1fa2ff44;
+  background: #f7fafc;
+}
+
+body.light-theme .collab-card-link {
+  color: #1fa2ff;
+}
+body.light-theme .collab-card-link:hover {
+  color: #ff512f;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .collab-carousel {
+    gap: 18px;
+  }
+  .collab-card {
+    min-width: 220px;
+    max-width: 220px;
+    padding: 18px 8px 12px 8px;
+  }
+}

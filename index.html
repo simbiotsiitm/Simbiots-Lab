@@ -5,18 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prasad Patnaik B S V</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add('dark-theme');
+    });
+  </script>
 </head>
 <body>
   <div id="splash-screen">
-    <img src="images/simbiots-logo.png" alt="Simbiots" class="splash-logo" />
-    <h1 class="splash-text">Simbiots Lab</h1>
+    <img src="images/logo_round_gold-removebg-preview.png" alt="Simbiots" class="splash-logo" />
+    <h1 class="splash-text">SIMBIOTS LAB</h1>
   </div>  
   <header class="navbar">
     <div class="navbar-left" onclick="toggleLeftSection()">
       <div class="toggle-container">
         <div class="toggle-block profile-block active">
-          <img src="images/patnaiksir.jpg" alt="Dr Prasad Patnaik B S V" class="prof-img" />
+          <img src="images/patnaiksir-removebg-preview.png" alt="Dr Prasad Patnaik B S V" class="prof-img" />
           <span class="prof-name">Dr Prasad Patnaik B S V</span>
         </div>
         <div class="toggle-block iitm-block">
@@ -34,12 +40,25 @@
     <nav class="navbar-right" id="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="#">Research</a>
-      <a href="#">People</a>
+      <a href="research.html">Research</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">People</a>
+        <div class="dropdown-content">
+          <a href="colloborators.html">Collaborators</a>
+          <a href="team.html">Team</a>
+          <a href="#">Alumni</a>
+        </div>
+      </div>
       <a href="#">Publications</a>
+      <a href="gallery.html">Gallery</a>
       <a href="#">Apply Now</a>
       <a href="#">Contact Us</a>
     </nav>
+    <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
+      <div class="switch-track">
+        <div class="switch-thumb"></div>
+      </div>
+    </div>
   </header>
 
   <main class="content">

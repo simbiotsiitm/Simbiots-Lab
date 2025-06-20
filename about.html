@@ -6,22 +6,31 @@
   <title>About | Dr. Prasad Patnaik BSV</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <script>
+  <!--<script>
     if (performance.navigation.type === 1) {
       window.location.href = "index.html";
     }
+  </script>-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add('dark-theme');
+    });
   </script>
   
 </head>
 <body>
 
+  <div id="splash-screen">
+    <img src="images/logo_round_gold-removebg-preview.png" alt="Simbiots" class="splash-logo" />
+  </div> 
   <!-- Header -->
   <header class="navbar">
     <div class="navbar-left" onclick="toggleLeftSection()">
       <div class="toggle-container">
         <div class="toggle-block profile-block active">
-          <img src="images/patnaiksirblueshirt.png" alt="Dr Prasad Patnaik B S V" class="prof-img" />
+          <img src="images/patnaiksir-removebg-preview.png" alt="Dr Prasad Patnaik B S V" class="prof-img" />
           <span class="prof-name">Dr Prasad Patnaik B S V</span>
         </div>
         <div class="toggle-block iitm-block">
@@ -39,12 +48,25 @@
     <nav class="navbar-right" id="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="#">Research</a>
-      <a href="#">People</a>
+      <a href="research.html">Research</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">People</a>
+        <div class="dropdown-content">
+          <a href="colloborators.html">Collaborators</a>
+          <a href="#">Team</a>
+          <a href="#">Alumni</a>
+        </div>
+      </div>
       <a href="#">Publications</a>
+      <a href="gallery.html">Gallery</a>
       <a href="#">Apply Now</a>
       <a href="#">Contact Us</a>
     </nav>
+    <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
+      <div class="switch-track">
+        <div class="switch-thumb"></div>
+      </div>
+    </div>
   </header>
 
   <!-- Hero Section -->
@@ -54,43 +76,143 @@
       <div class="cursor">|</div>
     </div>
     <div class="hero-image">
-      <img src="images/patnaiksirblueshirt-removebg-preview.png" alt="Dr Prasad Patnaik" />
+      <img src="images/sir-blazer.png" alt="Dr Prasad Patnaik" />
     </div>
   </section>
 
   <!-- Main Content -->
   <main class="about-content">
     <section>
-      <h2>Research Focus</h2>
-      <p>Dr. BSVP specializes in the development of tools for fluid-structure-interaction (FSI) in Fluid-Thermal systems. His group has worked on wide spectrum of FSI problems ranging from wakes past bluff bodies to cardio-vascular simulations. They use SPH, DPD methods, and study CHF margins in rod bundle heat transfer.</p>
+      <h2 class="research-focus-heading">
+        <i class="fas fa-microscope"></i> Research Focus
+      </h2>
+      <p>Dr BSVP specializes in the development of tools for fluid-structure-interaction (FSI) in Fluid-Thermal systems. His group has worked on wide spectrum of fluid-structure interaction problems ranging from the dynamics of wakes past bluff bodies to flow through the circulatory systems. Algorithms have been developed to control the self-excited nature of flow past bodies and resulting flow induced vibrations (FIV). The focus has been on problems such as, blast loading of structures (using smooth particle hydrodynamics - SPH) to micro-flow simulations using dissipative particle dynamics – DPD. Of late, his group is interested in analyzing problems of clinical interest such as, arterial wall coupling with the dynamics of blood flow in the cardio-vascular flows and cerebral circulation. Current interest also includes calculation of CHF margins in rod bundle heat transfer and their vibrations.</p>
     </section>
 
+    <div class="scholar-wrapper">
+      <span class="finger-icon">👉</span>
+      <a href="https://scholar.google.co.in/citations?hl=en&user=L_sLG_QAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="scholar-btn">
+        Google Scholar Profile
+      </a>
+    </div>
+    
+    
+
     <section>
-      <h2>Education</h2>
-      <ul>
-        <li>Ph.D., 1998 – Computational Fluid Dynamics, IIT Madras</li>
-        <li>M.S., 1994 – Computational Fluid Dynamics, IIT Madras</li>
+      <h2 class="education-heading">
+        <i class="fas fa-graduation-cap"></i> Education
+      </h2>
+      <ul class="education-list">
+        <li>
+          <div class="degree-row">
+            <i class="fas fa-university degree-icon"></i>
+            <span class="degree-title">Ph.D.</span>
+            <span class="degree-year">1998</span>
+          </div>
+          <div class="degree-detail">Computational Fluid Dynamics</div>
+          <div class="degree-inst">IIT Madras</div>
+        </li>
+        <li>
+          <div class="degree-row">
+            <i class="fas fa-university degree-icon"></i>
+            <span class="degree-title">M.S.</span>
+            <span class="degree-year">1994</span>
+          </div>
+          <div class="degree-detail">Computational Fluid Dynamics</div>
+          <div class="degree-inst">IIT Madras</div>
+        </li>
       </ul>
     </section>
 
     <section>
-      <h2>Experience</h2>
-      <ul>
-        <li>Professor (HAG), 2021–Current – IIT Madras</li>
-        <li>Professor, 2014–2021 – IIT Madras</li>
-        <li>Associate Professor, 2010–2014 – IIT Madras</li>
-        <li>Assistant Professor, 2006–2010 – IIT Madras</li>
-        <li>Teaching Fellow, 2001–2006 – National Univ. of Singapore</li>
-        <li>Post Doc – UBC & NUS (1998–2001)</li>
+      <h2 class="experience-heading">
+        <i class="fas fa-briefcase"></i> Experience
+      </h2>
+      <ul class="experience-list">
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-user-tie exp-icon"></i>
+            <span class="exp-title">Professor (with HAG)</span>
+          </div>
+          <div class="exp-years">2021 - Current</div>
+          <div class="exp-inst">Dept. of Applied Mechanics, IIT Madras</div>
+        </li>
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-user-tie exp-icon"></i>
+            <span class="exp-title">Professor</span>
+          </div>
+          <div class="exp-years">2014 - 2021</div>
+          <div class="exp-inst">Dept. of Applied Mechanics, IIT Madras</div>
+        </li>
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-chalkboard-teacher exp-icon"></i>
+            <span class="exp-title">Associate Professor</span>
+          </div>
+          <div class="exp-years">2010 - 2014</div>
+          <div class="exp-inst">Dept. of Applied Mechanics, IIT Madras</div>
+        </li>
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-chalkboard-teacher exp-icon"></i>
+            <span class="exp-title">Assistant Professor</span>
+          </div>
+          <div class="exp-years">2006 - 2010</div>
+          <div class="exp-inst">Dept. of Applied Mechanics, IIT Madras</div>
+        </li>
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-globe exp-icon"></i>
+            <span class="exp-title">Visitor</span>
+          </div>
+          <div class="exp-years">2006 - 2006</div>
+          <div class="exp-inst">SECAM, University of Exeter, Exeter, UK</div>
+        </li>
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-chalkboard exp-icon"></i>
+            <span class="exp-title">Teaching Fellow</span>
+          </div>
+          <div class="exp-years">2001 - 2006</div>
+          <div class="exp-inst">Department of Computational Science, National University of Singapore, Singapore</div>
+        </li>
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-flask exp-icon"></i>
+            <span class="exp-title">NSTB Post Doctoral Fellow</span>
+          </div>
+          <div class="exp-years">1999 - 2001</div>
+          <div class="exp-inst">Department of Computational Science, National University of Singapore, Singapore</div>
+        </li>
+        <li>
+          <div class="exp-row">
+            <i class="fas fa-flask exp-icon"></i>
+            <span class="exp-title">Post Doctoral Fellow</span>
+          </div>
+          <div class="exp-years">1998 - 1999</div>
+          <div class="exp-inst">Department of Mechanical Engineering, University of British Columbia, Vancouver, Canada</div>
+        </li>
       </ul>
     </section>
 
     <section>
-      <h2>Professional & Administrative Roles</h2>
-      <ul>
-        <li>Reviewer for top journals (Elsevier, Springer...)</li>
-        <li>Warden, President Film Club, Treasurer & Secretary ISHMT</li>
-        <li>Chairman GATE 2020-21, Member of multiple BoS/NITs</li>
+      <h2 class="roles-heading">
+        <i class="fas fa-user-cog"></i> Professional & Administrative Roles
+      </h2>
+      <ul class="role-details-list">
+        <li>
+          📝 <b>Reviewer:</b> Elsevier, Wiley, Springer and other society journals<br>
+          <span style="font-size: 0.95em;">Fluid Mechanics, Heat Transfer, Bio-Fluid Mechanics, Numerical Methods, Computational Engineering</span>
+        </li>
+        <li>🏠 <b>Warden:</b> Narmada Hostel, Office of Hostel Management, IIT Madras (2010–2014)</li>
+        <li>🎬 <b>President:</b> Film Club, IIT Madras (2016–2018)</li>
+        <li>💰 <b>Treasurer:</b> Indian Society for Applied Mechanics (2015–2019)</li>
+        <li>🗝️ <b>Secretary:</b> Indian Society for Heat and Mass Transfer (ISHMT) (2016–2020)</li>
+        <li>👨‍💼 <b>Chairman:</b> GATE (2020–21)</li>
+        <li>👔 <b>Vice-Chair:</b> GATE (2018–19, 19–20)</li>
+        <li>👥 <b>Member:</b> BOS/AC to several Engineering Colleges, NIT’s</li>
+        <li>🧑‍⚖️ <b>Panel Member:</b> Recruitment committee to a few Engineering Colleges/NIT’s/IIT’s</li>
       </ul>
     </section>
   </main>

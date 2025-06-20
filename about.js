@@ -1,57 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
+ window.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash-screen');
     const textElement = document.getElementById("typewriter");
+    const cursor = document.querySelector(".cursor");
     const lines = [
       "DR PRASAD PATNAIK B S V",
       "Professor"
     ];
-  
+    const professorText = "Department of Applied Mechanics & BioMedical Engineering";
     let lineIndex = 0;
     let charIndex = 0;
-    let loopProfessor = false;
-    const professorText = "Department of Applied Mechanics & BioMedical";
-    let professorIndex = 0;
-    let isDeleting = false;
+  
+    // Show splash for 2 seconds, then fade out and start typewriter
+    setTimeout(() => {
+      if (splash) {
+        splash.classList.add('fade-out');
+        setTimeout(() => {
+          splash.style.display = 'none';
+          typeInitialLines();
+        }, 800); // match the CSS transition duration
+      } else {
+        typeInitialLines();
+      }
+    }, 2000);
   
     function typeInitialLines() {
       if (lineIndex < lines.length) {
         if (charIndex < lines[lineIndex].length) {
-          // Append one char at a time
           textElement.innerHTML += lines[lineIndex].charAt(charIndex);
           charIndex++;
-          setTimeout(typeInitialLines, 70);
+          setTimeout(typeInitialLines, 50);
         } else {
           textElement.innerHTML += "<br>";
           lineIndex++;
           charIndex = 0;
-          setTimeout(typeInitialLines, 500);
+          setTimeout(typeInitialLines, 400);
         }
       } else {
-        loopProfessor = true;
-        typeProfessorLoop();
+        typeProfessorText();
       }
     }
   
-    function typeProfessorLoop() {
-      if (loopProfessor) {
-        const current = professorText.substring(0, professorIndex);
-        textElement.innerHTML = lines.join("<br>") + "<br>" + current;
-  
-        if (!isDeleting && professorIndex < professorText.length) {
-          professorIndex++;
-          setTimeout(typeProfessorLoop, 100);
-        } else if (!isDeleting && professorIndex === professorText.length) {
-          isDeleting = true;
-          setTimeout(typeProfessorLoop, 1000);
-        } else if (isDeleting && professorIndex > 0) {
-          professorIndex--;
-          setTimeout(typeProfessorLoop, 60);
+    function typeProfessorText() {
+      let profIndex = 0;
+      function typeProf() {
+        if (profIndex <= professorText.length) {
+          textElement.innerHTML = lines.join("<br>") + "<br>" + professorText.substring(0, profIndex);
+          profIndex++;
+          setTimeout(typeProf, 50);
         } else {
-          isDeleting = false;
-          setTimeout(typeProfessorLoop, 500);
+          // Stop blinking cursor after typing is done
+          if (cursor) cursor.style.visibility = "hidden";
         }
       }
+      typeProf();
     }
-  
-    typeInitialLines();
   });
-  
