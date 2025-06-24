@@ -1,32 +1,52 @@
 document.addEventListener("DOMContentLoaded", function() {
-  let teamData = [];
+  const SHEET_ID = '1a-4nXqKPbC6fngRbD6ueVZuzDbFvs_88FKEl8l4mlwA';
+  const SHEET_NAME = 'Sheet1'; // or your actual sheet name
+  const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
   const cardsContainer = document.getElementById('team-cards');
   const btns = document.querySelectorAll('.team-btn');
+  let teamData = [];
 
-  // Load data (replace 'team.json' with your actual path)
-  fetch('https://api.sheetbest.com/sheets/d2c7661c-1744-4e48-9c2a-125d6d1585d6')
-    .then(res => res.json())
-    .then(data => {
-      teamData = data;
+  fetch(SHEET_URL)
+    .then(res => res.text())
+    .then(text => {
+      const json = JSON.parse(text.substr(47).slice(0, -2));
+      const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
+      const data = json.table.rows.map(row => {
+        const obj = {};
+        row.c.forEach((cell, i) => {
+          obj[cols[i]] = cell ? cell.v : '';
+        });
+        return obj;
+      });
+      // SKIP THE FIRST ROW (header row)
+      teamData = data.slice(1);
+      console.log('Team Data:', teamData);
       renderCards('all');
     });
 
   function renderCards(filter) {
-    cardsContainer.style.opacity = 0.3;
-    setTimeout(() => {
-      cardsContainer.innerHTML = '';
-      let filtered = filter === 'all' ? teamData : teamData.filter(d => d.designation.toLowerCase() === filter);
-      filtered.forEach(member => {
-        cardsContainer.innerHTML += `
-          <div class="team-card">
-            <img src="${member.image_path}" alt="${member.designation}" class="team-card-img" />
+    cardsContainer.innerHTML = '';
+    let filtered = teamData;
+    if (filter !== 'all') {
+      filtered = teamData.filter(d =>
+        d.designation &&
+        d.designation.trim().toLowerCase().includes(filter)
+      );
+    }
+    filtered.forEach(member => {
+      cardsContainer.innerHTML += `
+        <div class="team-card">
+          <div class="team-card-img-wrap">
+            <img src="${member.image_path}" alt="${member.name}" class="team-card-img" />
+          </div>
+          <div class="team-card-content">
             <div class="team-card-designation">${member.designation}</div>
+            <div class="team-card-name">${member.name}</div>
             <div class="team-card-work">${member.work_heading}</div>
           </div>
-        `;
-      });
-      cardsContainer.style.opacity = 1;
-    }, 200);
+        </div>
+      `;
+    });
   }
 
   btns.forEach(btn => {
