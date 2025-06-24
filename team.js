@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   const SHEET_ID = '1a-4nXqKPbC6fngRbD6ueVZuzDbFvs_88FKEl8l4mlwA';
-  const SHEET_NAME = 'Sheet1'; // or your actual sheet name
+  const SHEET_NAME = 'Team Data'; // or your actual sheet name
   const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
   const cardsContainer = document.getElementById('team-cards');
   const btns = document.querySelectorAll('.team-btn');
