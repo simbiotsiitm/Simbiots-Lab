@@ -25,29 +25,41 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
   function renderCards(filter) {
+  cardsContainer.style.opacity = 0.3;
+  setTimeout(() => {
     cardsContainer.innerHTML = '';
     let filtered = teamData;
     if (filter !== 'all') {
-      filtered = teamData.filter(d =>
-        d.designation &&
-        d.designation.trim().toLowerCase().includes(filter)
-      );
+      if (filter === 'others') {
+        const othersList = ['mtech', 'intern', 'dual degree', 'others'];
+        filtered = teamData.filter(d =>
+          d.designation &&
+          othersList.some(val => d.designation.trim().toLowerCase().includes(val))
+        );
+      } else {
+        filtered = teamData.filter(d =>
+          d.designation &&
+          d.designation.trim().toLowerCase().includes(filter)
+        );
+      }
     }
     filtered.forEach(member => {
       cardsContainer.innerHTML += `
         <div class="team-card">
-          <div class="team-card-img-wrap">
+            <div class="team-card-img-wrap">
             <img src="${member.image_path}" alt="${member.name}" class="team-card-img" />
-          </div>
-          <div class="team-card-content">
+            </div>
+            <div class="team-card-content">
             <div class="team-card-designation">${member.designation}</div>
             <div class="team-card-name">${member.name}</div>
             <div class="team-card-work">${member.work_heading}</div>
-          </div>
+            </div>
         </div>
-      `;
+        `;
     });
-  }
+    cardsContainer.style.opacity = 1;
+  }, 200);
+}
 
   btns.forEach(btn => {
     btn.addEventListener('click', function() {
