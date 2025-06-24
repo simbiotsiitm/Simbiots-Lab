@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(text => {
       const json = JSON.parse(text.substr(47).slice(0, -2));
       const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
+      console.log('Parsed columns:', cols);
       const data = json.table.rows.map(row => {
         const obj = {};
         row.c.forEach((cell, i) => {
