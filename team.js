@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(res => res.text())
     .then(text => {
       const json = JSON.parse(text.substr(47).slice(0, -2));
-      const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
+      //const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
+      const cols = ['image_path', 'designation', 'name', 'work_heading'];
       console.log('Parsed columns:', cols);
       const data = json.table.rows.map(row => {
         const obj = {};
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return obj;
       });
       // SKIP THE FIRST ROW (header row)
-      teamData = data;
+      teamData = data.slice(1);
       console.log('Team Data:', teamData);
       renderCards('all');
     });
