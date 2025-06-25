@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return obj;
       });
       // SKIP THE FIRST ROW (header row)
-      teamData = data.slice(1);
+      teamData = data;
       console.log('Team Data:', teamData);
       renderCards('all');
     });
