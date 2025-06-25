@@ -201,46 +201,72 @@ body.light-theme .team-btn:hover {
   background: #232946;
   border-radius: 18px;
   box-shadow: 0 4px 24px #0003;
-  width: 220px;
+  width: 270px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 24px 18px 18px 18px;
+  align-items: stretch;
+  padding: 0 0 28px 0;
   transition: transform 0.4s, box-shadow 0.4s, opacity 0.4s;
   opacity: 1;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
+  margin: 20px;
 }
 .team-card:hover {
   transform: translateY(-12px) scale(1.04) rotate(-2deg);
   box-shadow: 0 8px 32px #ffd70055, 0 2px 12px #00eaff33;
   z-index: 2;
 }
+.team-card-img-wrap {
+  width: 100%;
+  height: 140px;
+  min-height: 160px;
+  max-height: 160px;
+  overflow: hidden;
+  background: #111;
+}
 .team-card-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 4px solid #ffd700;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 12px #ffd70044;
-  background: #fff;
+  border-radius: 0;
+  display: block;
+  border: none;
+  box-shadow: none;
+}
+.team-card-content {
+  padding: 18px 18px 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .team-card-designation {
   font-size: 1em;
-  color: #eaf6ff;
-  margin-bottom: 8px;
+  color: lightgreen;
+  margin: 14px 0 2px 0;
   text-align: center;
   font-weight: 600;
 }
-.team-card-work {
-  font-size: 1.05em;
+.team-card-name {
+  font-size: 1.13em;
   color: #ffd700;
   text-align: center;
   font-family: 'Montserrat', 'Bree Serif', serif;
   font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px #ffd70055;
+}
+.team-card-work {
+  font-size: 1.05em;
+  color: #eaf6ff;
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/* Light theme overrides */
 body.light-theme .team-card {
   background: #fff;
   color: #233554;
@@ -248,13 +274,12 @@ body.light-theme .team-card {
   border: 1px solid #e3e6ee;
 }
 body.light-theme .team-card-designation {
-  color: #003b5e;
+  color: #800000;
 }
-body.light-theme .team-card-img {
-  border-color: #1fa2ff;
-  box-shadow: 0 2px 12px #1fa2ff44;
-  background: #f7fafc;
+body.light-theme .team-card-name {
+  color: #1fa2ff;
+  text-shadow: 0 2px 8px #1fa2ff44;
 }
 body.light-theme .team-card-work {
-  color: #1fa2ff;
+  color: #003b5e;
 }
