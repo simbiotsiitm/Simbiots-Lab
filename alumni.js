@@ -35,8 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
       filtered.forEach(member => {
         cardsContainer.innerHTML += `
   <div class="alumni-card-horizontal">
-    <div class="alumni-card-photo">
-      <img src="${member.image_path}" alt="${member.name}" />
+    <div class="alumni-card-photo-col">
+      <img src="${member.image_path}" alt="${member.name}" class="alumni-card-photo" />
+      ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
     </div>
     <div class="alumni-card-info">
       <div class="alumni-card-name">${member.name || ''}</div>
@@ -44,14 +45,13 @@ document.addEventListener("DOMContentLoaded", function() {
       <div class="alumni-card-thesis">“${member.thesis_title || ''}”</div>
       <div class="alumni-card-coguide"><b>Co-guide:</b> ${member.co_guide || ''}</div>
       <div class="alumni-card-bottom-row">
-        ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
         <span class="alumni-card-coord">${member.current_coordinates || ''}</span>
         ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
       </div>
     </div>
   </div>
 `;
-      });
+    });
       cardsContainer.style.opacity = 1;
     }, 200);
   }
