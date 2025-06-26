@@ -34,24 +34,30 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       filtered.forEach(member => {
         cardsContainer.innerHTML += `
-          <div class="alumni-card">
-            <div class="alumni-card-img-wrap">
-              ${member.image_path ? `<img src="${member.image_path}" alt="${member.name}" class="alumni-card-img" />` : `<i class="fas fa-user-graduate alumni-card-img"></i>`}
-            </div>
-            <div class="alumni-card-content">
-              <div class="alumni-card-name">${member.name || ''}</div>
-              <div class="alumni-card-scholar">${member.scholar_type || ''}</div>
-              <div class="alumni-card-year">Year of Graduation: ${member.year_of_graduation || ''}</div>
-              <div class="alumni-card-thesis">Thesis Title: ${member.thesis_title || ''}</div>
-              <div class="alumni-card-coord">Current: ${member.current_coordinates || ''}</div>
-              ${member.co_guide ? `<div class="alumni-card-coguide">Co-guide: ${member.co_guide}</div>` : ''}
-              <div class="alumni-card-row">
-                ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank">Visit Profile <i class="fas fa-external-link-alt"></i></a>` : ''}
-                ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
-              </div>
-            </div>
-          </div>
-        `;
+  <div class="alumni-card">
+    <div class="alumni-card-img-wrap">
+      <img src="${member.image_path}" alt="${member.name}" class="alumni-card-img" />
+    </div>
+    <div class="alumni-card-content">
+      <div class="alumni-card-header">
+        <div class="alumni-card-name">${member.name || ''}</div>
+        <div class="alumni-card-meta">
+          ${member.scholar_type || ''}${member.year_of_graduation ? ' &middot; ' + member.year_of_graduation : ''}
+        </div>
+      </div>
+      <div class="alumni-card-thesis">“${member.thesis_title || ''}”</div>
+      <div class="alumni-card-row">
+        ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
+      </div>
+      <div class="alumni-card-coord"><b>Current:</b> ${member.current_coordinates || ''}</div>
+      ${member.co_guide ? `<div class="alumni-card-coguide"><b>Co-guide:</b> ${member.co_guide}</div>` : ''}
+      <div class="alumni-card-links">
+        ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+        ${member.scholar_link ? `<a href="${member.scholar_link}" class="alumni-card-link" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
+      </div>
+    </div>
+  </div>
+`;
       });
       cardsContainer.style.opacity = 1;
     }, 200);
