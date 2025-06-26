@@ -589,8 +589,7 @@ body.dark-theme .alumni-card-link:hover {
   border-radius: 20px;
   background: #fff;
   box-shadow: 0 1px 6px #0002;
-  margin-top:30%;
-  margin-left:50%
+  margin:20px;
 }
 .alumni-card-info {
   flex: 1;
