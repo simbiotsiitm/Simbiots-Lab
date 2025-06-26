@@ -34,23 +34,28 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       filtered.forEach(member => {
         cardsContainer.innerHTML += `
-          <div class="alumni-card">
-            <div class="alumni-card-img-wrap">
-              ${member.image_path ? `<img src="${member.image_path}" alt="${member.name}" class="alumni-card-img" />` : `<i class="fas fa-user-graduate alumni-card-img"></i>`}
-            </div>
-            <div class="alumni-card-content">
-              <div class="alumni-card-name">${member.name || ''}</div>
-              <div class="alumni-card-scholar">${member.scholar_type || ''}</div>
-              <div class="alumni-card-year">Year of Graduation: ${member.year_of_graduation || ''}</div>
-              <div class="alumni-card-thesis">Thesis Title: ${member.thesis_title || ''}</div>
-              <div class="alumni-card-coord">Current: ${member.current_coordinates || ''}</div>
-              ${member.co_guide ? `<div class="alumni-card-coguide">Co-guide: ${member.co_guide}</div>` : ''}
-              <div class="alumni-card-row">
-                ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank">Visit Profile <i class="fas fa-external-link-alt"></i></a>` : ''}
-                ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
-              </div>
-            </div>
-          </div>
+          // Inside your renderCards or renderAlumniCards function:
+cardsContainer.innerHTML += `
+  <div class="alumni-card">
+    <div class="alumni-card-img-wrap">
+      <span class="alumni-card-scholar-type">${member.scholar_type || ''}</span>
+      ${member.image_path ? `<img src="${member.image_path}" alt="${member.name}" class="alumni-card-img" />` : `<i class="fas fa-user-graduate alumni-card-img"></i>`}
+    </div>
+    <div class="alumni-card-main">
+      <div class="alumni-card-name">${member.name || ''}</div>
+      <div class="alumni-card-thesis">${member.thesis_title || ''}</div>
+      ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank">Visit Profile <i class="fas fa-external-link-alt"></i></a>` : ''}
+    </div>
+    <div class="alumni-card-hover">
+      <div class="alumni-card-year">Year: ${member.year_of_graduation || ''}</div>
+      <div class="alumni-card-coord">Current: ${member.current_coordinates || ''}</div>
+      ${member.co_guide ? `<div class="alumni-card-coguide">Co-guide: ${member.co_guide}</div>` : ''}
+      <div class="alumni-card-row">
+        ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
+      </div>
+    </div>
+  </div>
+`;
         `;
       });
       cardsContainer.style.opacity = 1;
