@@ -560,6 +560,7 @@ body.dark-theme .alumni-card-link:hover {
   padding: 24px;
   margin: 24px 0;
   width: 340px;
+  max-width:60vw
   transition: box-shadow 0.3s, transform 0.3s;
   border: 1px solid #e3e6ee;
 }
@@ -574,8 +575,8 @@ body.dark-theme .alumni-card-link:hover {
   margin-right: 24px;
 }
 .alumni-card-photo {
-  width: 196px;
-  height: 196px;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   border-radius: 18px;
   background: #f6f8fa;
@@ -583,10 +584,10 @@ body.dark-theme .alumni-card-link:hover {
   margin-bottom: 12px;
 }
 .alumni-card-workplace-img {
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
-  border-radius: 18px;
+  border-radius: 20px;
   background: #fff;
   box-shadow: 0 1px 6px #0002;
 }
