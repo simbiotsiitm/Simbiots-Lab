@@ -571,7 +571,7 @@ body.dark-theme .alumni-card-link:hover {
 .alumni-card-photo-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: space between;
   margin-right: 24px;
 }
 .alumni-card-photo {
