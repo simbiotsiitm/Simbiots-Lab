@@ -559,7 +559,7 @@ body.dark-theme .alumni-card-link:hover {
   box-shadow: 0 4px 24px #0001, 0 1.5px 6px #1fa2ff22;
   padding: 24px;
   margin: 24px 0;
-  width: 540px;
+  width: 340px;
   max-width: 98vw;
   transition: box-shadow 0.3s, transform 0.3s;
   border: 1px solid #e3e6ee;
@@ -575,8 +575,8 @@ body.dark-theme .alumni-card-link:hover {
   margin-right: 24px;
 }
 .alumni-card-photo {
-  width: 96px;
-  height: 96px;
+  width: 196px;
+  height: 196px;
   object-fit: cover;
   border-radius: 18px;
   background: #f6f8fa;
@@ -587,7 +587,7 @@ body.dark-theme .alumni-card-link:hover {
   width: 44px;
   height: 44px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 18px;
   background: #fff;
   box-shadow: 0 1px 6px #0002;
 }
