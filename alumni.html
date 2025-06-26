@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Alumni</title>
+  <link rel="stylesheet" href="alumni.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <!-- Navbar (reuse your existing navbar code) -->
+  <header class="navbar">
+    <div class="navbar-left" onclick="toggleLeftSection()">
+      <div class="toggle-container">
+        <div class="toggle-block profile-block active">
+          <img src="images/patnaiksir-removebg-preview.png" alt="Dr Prasad Patnaik B S V" class="prof-img" />
+          <span class="prof-name">Dr Prasad Patnaik B S V</span>
+        </div>
+        <div class="toggle-block iitm-block">
+          <img src="images/iitmlogo.png" alt="IIT Madras Logo" class="iitlogo" />
+          <div class="iit-text">
+            <p class="iit-heading">INDIAN INSTITUTE OF TECHNOLOGY MADRAS</p>
+            <p class="dept-name">Department of Applied Mechanics & BioMedical</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <nav class="navbar-right" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">People</a>
+        <div class="dropdown-content">
+          <a href="colloborators.html">Collaborators</a>
+          <a href="team.html">Team</a>
+          <a href="#">Alumni</a>
+        </div>
+      </div>
+      <a href="#">Publications</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#">Apply Now</a>
+      <a href="#">Contact Us</a>
+    </nav>
+    <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
+      <div class="switch-track">
+        <div class="switch-thumb"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="alumni-hero">
+    <div class="alumni-hero-flex">
+      <div class="alumni-heading-col">
+        <h1 class="alumni-title">Our Alumni</h1>
+      </div>
+      <div class="alumni-img-col">
+        <div class="alumni-img-frame">
+          <img src="images/alumni.jpg" alt="Alumni" class="alumni-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alumni Filter Buttons -->
+  <section class="alumni-filter-section">
+    <div class="alumni-filter-btns">
+      <button class="alumni-btn active" data-filter="all">All</button>
+      <button class="alumni-btn" data-filter="phd scholar">PhD Scholars</button>
+      <button class="alumni-btn" data-filter="ms scholar">MS Scholars</button>
+    </div>
+    <div class="alumni-cards" id="alumni-cards">
+      <!-- Cards will be injected here by JS -->
+    </div>
+  </section>
+
+  <script src="alumni.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Theme toggle
+    const themeSwitch = document.getElementById('theme-switch');
+    themeSwitch.onclick = function() {
+      document.body.classList.toggle('dark-theme');
+      document.body.classList.toggle('light-theme');
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1lo9LvFti30ZkcvL0y-ZotaQY2ci-0lcJ90LiF6NQvF0/gviz/tq?tqx=out:json&sheet=Sheet1';
+  const cardsContainer = document.getElementById('alumni-cards');
+  const btns = document.querySelectorAll('.alumni-btn');
+  let alumniData = [];
+
+  fetch(SHEET_URL)
+    .then(res => res.text())
+    .then(text => {
+      const json = JSON.parse(text.substr(47).slice(0, -2));
+      const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
+      const data = json.table.rows.map(row => {
+        const obj = {};
+        row.c.forEach((cell, i) => {
+          obj[cols[i]] = cell ? cell.v : '';
+        });
+        return obj;
+      });
+      // Skip header row if needed
+      alumniData = data[0].name === 'name' ? data.slice(1) : data;
+      renderCards('all');
+    });
+
+  function renderCards(filter) {
+    cardsContainer.style.opacity = 0.3;
+    setTimeout(() => {
+      cardsContainer.innerHTML = '';
+      let filtered = alumniData;
+      if (filter !== 'all') {
+        filtered = alumniData.filter(d =>
+          d.scholar_type &&
+          d.scholar_type.trim().toLowerCase().includes(filter)
+        );
+      }
+      filtered.forEach(member => {
+        cardsContainer.innerHTML += `
+          <div class="alumni-card">
+            <div class="alumni-card-img-wrap">
+              ${member.image_path ? `<img src="${member.image_path}" alt="${member.name}" class="alumni-card-img" />` : `<i class="fas fa-user-graduate alumni-card-img"></i>`}
+            </div>
+            <div class="alumni-card-content">
+              <div class="alumni-card-name">${member.name || ''}</div>
+              <div class="alumni-card-scholar">${member.scholar_type || ''}</div>
+              <div class="alumni-card-year">Year of Graduation: ${member.year_of_graduation || ''}</div>
+              <div class="alumni-card-thesis">Thesis Title: ${member.thesis_title || ''}</div>
+              <div class="alumni-card-coord">Current: ${member.current_coordinates || ''}</div>
+              ${member.co_guide ? `<div class="alumni-card-coguide">Co-guide: ${member.co_guide}</div>` : ''}
+              <div class="alumni-card-row">
+                ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank">Visit Profile <i class="fas fa-external-link-alt"></i></a>` : ''}
+                ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      cardsContainer.style.opacity = 1;
+    }, 200);
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      btns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      renderCards(this.dataset.filter);
+    });
+  });
+});
