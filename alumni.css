@@ -278,3 +278,151 @@ body.light-theme .alumni-card-link:hover {
   background: linear-gradient(90deg, #ffd700, #ff512f);
   color: #233554;
 }
+.alumni-card {
+  background: var(--card-bg, #fff);
+  border-radius: 24px;
+  box-shadow: 0 4px 32px #0001, 0 1.5px 6px #1fa2ff22;
+  overflow: hidden;
+  width: 340px;
+  margin: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: box-shadow 0.3s, transform 0.3s;
+  border: 1px solid #e3e6ee;
+}
+.alumni-card:hover {
+  box-shadow: 0 8px 40px #1fa2ff33, 0 2px 12px #ffd70033;
+  transform: translateY(-8px) scale(1.03);
+}
+.alumni-card-img-wrap {
+  width: 100%;
+  height: 180px;
+  background: #f6f8fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 0 0;
+  overflow: hidden;
+}
+.alumni-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+.alumni-card-content {
+  padding: 22px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+}
+.alumni-card-header {
+  width: 100%;
+  margin-bottom: 6px;
+}
+.alumni-card-name {
+  font-size: 1.22em;
+  color: #232946;
+  font-family: 'Montserrat', 'Bree Serif', serif;
+  font-weight: 700;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+.alumni-card-meta {
+  font-size: 1em;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.alumni-card-thesis {
+  font-size: 1em;
+  color: #3a4a5d;
+  margin-bottom: 16px;
+  font-style: italic;
+  text-align: left;
+}
+.alumni-card-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.alumni-card-workplace-img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 1px 6px #0002;
+}
+.alumni-card-coord {
+  font-size: 1em;
+  color: #232946;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.alumni-card-coguide {
+  font-size: 1em;
+  color: #1fa2ff;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.alumni-card-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+.alumni-card-link {
+  color: #1fa2ff;
+  font-size: 1.6em;
+  background: #eaf6ff;
+  border-radius: 8px;
+  padding: 4px 10px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px #1fa2ff22;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.alumni-card-link:hover {
+  background: #ffd700;
+  color: #232946;
+  box-shadow: 0 2px 8px #ffd70044;
+}
+
+/* Dark theme support */
+body.dark-theme .alumni-card {
+  background: #232946;
+  color: #eaf6ff;
+  border: 1px solid #232946;
+}
+body.dark-theme .alumni-card-content {
+  background: none;
+}
+body.dark-theme .alumni-card-name {
+  color: #ffd700;
+}
+body.dark-theme .alumni-card-meta {
+  color: #eaf6ff;
+}
+body.dark-theme .alumni-card-thesis {
+  color: #eaf6ff;
+}
+body.dark-theme .alumni-card-coord {
+  color: #ffd700;
+}
+body.dark-theme .alumni-card-coguide {
+  color: #1fa2ff;
+}
+body.dark-theme .alumni-card-link {
+  background: #1a223a;
+  color: #1fa2ff;
+}
+body.dark-theme .alumni-card-link:hover {
+  background: #ffd700;
+  color: #232946;
+}
