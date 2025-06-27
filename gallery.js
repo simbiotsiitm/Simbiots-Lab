@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         return obj;
       });
-      const galleryData = data[0].title === 'title' ? data.slice(1) : data;
+      const galleryData = data.slice(1);
 
       // Carousel: show first 8 images
       const carouselImages = document.getElementById('carousel-images');
