@@ -35,21 +35,26 @@ document.addEventListener("DOMContentLoaded", function() {
       
       filtered.forEach(member => {
         cardsContainer.innerHTML += `
-  <div class="alumni-card-horizontal">
-    <div class="alumni-card-top-row">
-      <div class="alumni-card-photo-col">
+  <div class="alumni-card">
+    <div class="alumni-card-top">
+      <!-- Left Image -->
+      <div class="alumni-card-photo-wrap">
         <img src="${member.image_path}" alt="${member.name}" class="alumni-card-photo" />
       </div>
-      <div class="alumni-card-info-col">
+      
+      <!-- Right Info -->
+      <div class="alumni-card-info-wrap">
         <div class="alumni-card-name">${member.name || ''}</div>
         <div class="alumni-card-meta">${member.scholar_type || ''}${member.year_of_graduation ? ' · ' + member.year_of_graduation : ''}</div>
         <div class="alumni-card-thesis">“${member.thesis_title || ''}”</div>
-        <div class="alumni-card-coguide"><b>Co-guide:</b> ${member.co_guide || ''}</div>
+        <div class="alumni-card-coguide"><strong>Co-guide:</strong> ${member.co_guide || ''}</div>
       </div>
     </div>
-    <div class="alumni-card-bottom-row">
-      ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
-      <span class="alumni-card-coord">${member.current_coordinates || ''}</span>
+
+    <!-- Bottom Row -->
+    <div class="alumni-card-bottom">
+      ${member.workplace_logo ? `<img src="${member.workplace_logo}" class="alumni-card-workplace-img" alt="Workplace" />` : ''}
+      <div class="alumni-card-coord">${member.current_coordinates || ''}</div>
       <div class="alumni-card-links-row">
         ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
         ${member.scholar_link ? `<a href="${member.scholar_link}" class="alumni-card-link" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
@@ -57,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
   </div>
 `;
+
 
   /*     cardsContainer.innerHTML += `
   <div class="alumni-card-horizontal">
