@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       
       filtered.forEach(member => {
+        cardsContainer.innerHTML += `
         <div class="alumni-card-horizontal">
   <div class="alumni-card-photo-col">
     <img src="${member.image_path}" alt="${member.name}" class="alumni-card-photo" />
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
   </div>
 </div>
+`;
 
 
   /*     cardsContainer.innerHTML += `
