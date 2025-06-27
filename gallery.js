@@ -1,110 +1,78 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const galleryContainer = document.getElementById("gallery-container");
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-    const navbarRight = document.getElementById("nav-links");
-    const toggleContainer = document.querySelector(".toggle-container");
-  
-    // Example gallery data — replace with your real images
-    const galleryData = [
-      { category: 'vip', src: 'vip/1.jpg', title: 'VIP Image 1', date: '2023' },
-      { category: 'vip', src: 'vip/2.jpg', title: 'VIP Image 2', date: '2023' },
-      { category: 'conferences', src: 'conferences/1.jpg', title: 'Conference 1', date: '2022' },
-      { category: 'conferences', src: 'conferences/2.jpg', title: 'Conference 2', date: '2022' },
-      { category: 'treats', src: 'eating/1.jpg', title: 'Treat 1', date: '2023' },
-      { category: 'treats', src: 'eating/2.jpg', title: 'Treat 2', date: '2023' },
-      { category: 'prof_aswath', src: 'prof_aswath/1.jpg', title: 'Prof Aswath 1', date: '2023' },
-      // Add your images here
-    ];
-  
-    let itemsPerLoad = 6;
-    let currentIndex = 0;
-  
-    function renderGalleryItems(filter = 'all') {
-      galleryContainer.innerHTML = '';
-      const filteredData = filter === 'all' ? galleryData : galleryData.filter(item => item.category === filter);
-      const visibleItems = filteredData.slice(0, currentIndex + itemsPerLoad);
-  
-      visibleItems.forEach(item => {
-        const galleryItem = document.createElement('div');
-        galleryItem.className = `gallery-item ${item.category} visible`;
-        galleryItem.innerHTML = `
-          <a href="${item.src}" data-lightbox="gallery" data-title="<strong>${item.title}</strong><br>${item.date}">
-            <img src="${item.src}" alt="${item.title}" loading="lazy" />
-            <div class="caption">
-              <h3>${item.title}</h3>
-              <p>${item.date}</p>
-            </div>
-          </a>
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/gviz/tq?tqx=out:json&sheet=Sheet1';
+
+document.addEventListener("DOMContentLoaded", function() {
+  fetch(SHEET_URL)
+    .then(res => res.text())
+    .then(text => {
+      const json = JSON.parse(text.substr(47).slice(0, -2));
+      const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
+      const data = json.table.rows.map(row => {
+        const obj = {};
+        row.c.forEach((cell, i) => { obj[cols[i]] = cell ? cell.v : ''; });
+        return obj;
+      });
+      const galleryData = data[0].title === 'title' ? data.slice(1) : data;
+
+      // Carousel: show first 8 images
+      const carouselImages = document.getElementById('carousel-images');
+      galleryData.slice(0, 8).forEach(img => {
+        carouselImages.innerHTML += `
+          <div class="swiper-slide">
+            <img src="${img.image_url}" alt="${img.title}" />
+          </div>
         `;
-        galleryContainer.appendChild(galleryItem);
       });
-  
-      // Show/hide Load More
-      if (currentIndex + itemsPerLoad >= filteredData.length) {
-        loadMoreBtn.style.display = 'none';
-      } else {
-        loadMoreBtn.style.display = 'inline-block';
-      }
-    }
-  
-    renderGalleryItems();
-  
-    loadMoreBtn.addEventListener('click', () => {
-      currentIndex += itemsPerLoad;
-      const activeFilter = document.querySelector(".filter-btn.active").getAttribute("data-filter");
-      renderGalleryItems(activeFilter);
-    });
-  
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        currentIndex = 0;
-        renderGalleryItems(button.getAttribute('data-filter'));
+      new Swiper('.gallery-swiper', {
+        loop: true,
+        autoplay: { delay: 3500, disableOnInteraction: false },
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: { rotate: 30, stretch: 0, depth: 120, modifier: 1, slideShadows: true },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
       });
+
+      // Masonry Gallery
+      renderGallery(galleryData);
+
+      // Filters
+      setupFilters(galleryData);
     });
-  
-    // Toggle navbar left block between profile and IIT info
-    function toggleLeftSection() {
-      const profileBlock = document.querySelector(".profile-block");
-      const iitmBlock = document.querySelector(".iitm-block");
-      if (profileBlock.classList.contains("active")) {
-        profileBlock.classList.remove("active");
-        iitmBlock.classList.add("active");
-      } else {
-        profileBlock.classList.add("active");
-        iitmBlock.classList.remove("active");
-      }
-    }
-    window.toggleLeftSection = toggleLeftSection;
-  
-    // Hamburger menu toggle for mobile
-    function toggleMenu() {
-      navbarRight.classList.toggle('open');
-    }
-    window.toggleMenu = toggleMenu;
-  
-    // Auto slider for top images
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    function showSlides() {
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[slideIndex].classList.add('active');
-      slideIndex = (slideIndex + 1) % slides.length;
-    }
-    setInterval(showSlides, 2000);
-  
-    // Scroll animation on gallery items
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+
+  function renderGallery(items) {
+    const container = document.getElementById('gallery-container');
+    container.innerHTML = '';
+    items.forEach(item => {
+      container.innerHTML += `
+        <div class="gallery-item" data-type="${item.type}">
+          <img src="${item.image_url}" alt="${item.title}">
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-title">${item.title}</div>
+            <div class="gallery-overlay-date">${item.date}</div>
+            <div class="gallery-overlay-links">
+              ${item.link1 ? `<a href="${item.link1}" target="_blank"><i class="fas fa-link"></i> Link 1</a>` : ''}
+              ${item.link2 ? `<a href="${item.link2}" target="_blank"><i class="fas fa-link"></i> Link 2</a>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function setupFilters(galleryData) {
+    document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+      btn.onclick = function() {
+        document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        if (filter === 'all') {
+          renderGallery(galleryData);
+        } else {
+          renderGallery(galleryData.filter(item => item.type.toLowerCase() === filter));
         }
-      });
-    }, { threshold: 0.1 });
-  
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => observer.observe(item));
-  });
-  
+      };
+    });
+  }
+});
