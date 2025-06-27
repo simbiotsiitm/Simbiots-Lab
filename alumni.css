@@ -684,3 +684,45 @@ body.dark-theme .alumni-card-link:hover {
   background: #ffd700;
   color: #232946;
 }
+.alumni-card-footer-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+.alumni-card-workplace-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 6px #0002;
+}
+.alumni-card-coord {
+  color: #232946;
+  font-size: 1em;
+  font-weight: 600;
+  flex: 1;
+  text-align: left;
+}
+.alumni-card-footer-links {
+  display: flex;
+  gap: 10px;
+}
+.alumni-card-link {
+  color: #1fa2ff;
+  font-size: 1.5em;
+  background: #eaf6ff;
+  border-radius: 8px;
+  padding: 4px 10px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px #1fa2ff22;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.alumni-card-link:hover {
+  background: #ffd700;
+  color: #232946;
+  box-shadow: 0 2px 8px #ffd70044;
+}
