@@ -560,7 +560,7 @@ body.dark-theme .alumni-card-link:hover {
   padding: 24px;
   margin: 24px 0;
   width: 340px;
-  max-width:60vw
+  max-width:60vw;
   transition: box-shadow 0.3s, transform 0.3s;
   border: 1px solid #e3e6ee;
 }
