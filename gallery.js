@@ -1,4 +1,4 @@
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/gviz/tq?tqx=out:json&sheet=Sheet1';
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1TD-Ivc6yq-aC9OZSMFTzZBtpuR6tJ7T1gx75d6u8kZg/gviz/tq?tqx=out:json&sheet=Sheet1';
 
 document.addEventListener("DOMContentLoaded", function() {
   fetch(SHEET_URL)
