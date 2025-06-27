@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
       const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
       const data = json.table.rows.map(row => {
         const obj = {};
-        row.c.forEach((cell, i) => { obj[cols[i]] = cell ? cell.v : ''; });
+        row.c.forEach((cell, i) => {
+          obj[cols[i]] = cell ? cell.v : '';
+        });
         return obj;
       });
       const galleryData = data[0].title === 'title' ? data.slice(1) : data;
