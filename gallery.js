@@ -7,25 +7,19 @@ document.addEventListener("DOMContentLoaded", function() {
       const json = JSON.parse(text.substr(47).slice(0, -2));
       const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
       const data = json.table.rows.map(row => {
-    if (!row.c || row.c.every(cell => !cell || cell.v === null || cell.v === '')) return null;
-    const obj = {};
-    row.c.forEach((cell, i) => {
-      obj[cols[i]] = cell && cell.v ? cell.v : '';
-    });
-    return obj;
-  })
-  .filter(Boolean); // remove nulls (blank rows)
-
-const galleryData = data[0].title === 'title' ? data.slice(1) : data;
-
-      /*const data = json.table.rows.map(row => {
+        if (!row.c || row.c.every(cell => !cell || cell.v === null || cell.v === '')) return null;
         const obj = {};
         row.c.forEach((cell, i) => {
-          obj[cols[i]] = cell ? cell.v : '';
+          obj[cols[i]] = cell && cell.v ? cell.v : '';
         });
         return obj;
-      });
-      const galleryData = data.slice(1);*/
+      }).filter(Boolean);
+
+      // Skip header row if present
+      let galleryData = data;
+      if (galleryData.length && galleryData[0].image_url === 'image_url') {
+        galleryData = galleryData.slice(1);
+      }
 
       // Carousel: show first 8 images
       const carouselImages = document.getElementById('carousel-images');
@@ -67,7 +61,6 @@ const galleryData = data[0].title === 'title' ? data.slice(1) : data;
             <div class="gallery-overlay-date">${item.date}</div>
             <div class="gallery-overlay-links">
               ${item.link ? `<a href="${item.link}" target="_blank"><i class="fas fa-link"></i> Link </a>` : ''}
-              
             </div>
           </div>
         </div>
@@ -82,11 +75,3 @@ const galleryData = data[0].title === 'title' ? data.slice(1) : data;
         btn.classList.add('active');
         const filter = btn.dataset.filter;
         if (filter === 'all') {
-          renderGallery(galleryData);
-        } else {
-          renderGallery(galleryData.filter(item => item.type.toLowerCase() === filter));
-        }
-      };
-    });
-  }
-});
