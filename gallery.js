@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
       btn.onclick = function() {
         document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter;
+        const filter = btn.dataset.filter.trim().toLowerCase();
         if (filter === 'all') {
           renderGallery(galleryData);
         } else {
