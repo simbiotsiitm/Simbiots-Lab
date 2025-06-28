@@ -1,10 +1,33 @@
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: 'Montserrat', 'Bree Serif', serif;
-  background: #f6f8fa;
-  color: #232946;
+  /* Light theme smoky gradient */
+  background: 
+    radial-gradient(ellipse at 20% 30%, #eaf6ffcc 0%, #a6ffcb55 40%, #fff0 80%),
+    radial-gradient(ellipse at 80% 70%, #1fa2ff33 0%, #ffd70033 60%, #fff0 100%),
+    linear-gradient(120deg, #f6f8fa 0%, #eaf6ff 100%);
+  background-attachment: fixed;
+  transition: background 0.5s;
 }
 
+/* Dark theme smoky gradient */
+body.dark-theme {
+  background: 
+    radial-gradient(ellipse at 20% 30%, #232946cc 0%, #1fa2ff55 40%, #0000 80%),
+    radial-gradient(ellipse at 80% 70%, #ffd70033 0%, #1fa2ff33 60%, #0000 100%),
+    linear-gradient(120deg, #232946 0%, #232946 100%);
+  background-attachment: fixed;
+  transition: background 0.5s;
+}
+body, body.dark-theme {
+  background-size: 200% 200%;
+  animation: smokyMove 18s ease-in-out infinite alternate;
+}
+@keyframes smokyMove {
+  0% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+  100% { background-position: 100% 100%, 0% 0%, 100% 100%; }
+}
 .gallery-hero {
   position: relative;
   min-height: 340px;
