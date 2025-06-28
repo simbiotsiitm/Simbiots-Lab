@@ -7,13 +7,25 @@ document.addEventListener("DOMContentLoaded", function() {
       const json = JSON.parse(text.substr(47).slice(0, -2));
       const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
       const data = json.table.rows.map(row => {
+    if (!row.c || row.c.every(cell => !cell || cell.v === null || cell.v === '')) return null;
+    const obj = {};
+    row.c.forEach((cell, i) => {
+      obj[cols[i]] = cell && cell.v ? cell.v : '';
+    });
+    return obj;
+  })
+  .filter(Boolean); // remove nulls (blank rows)
+
+const galleryData = data[0].title === 'title' ? data.slice(1) : data;
+
+      /*const data = json.table.rows.map(row => {
         const obj = {};
         row.c.forEach((cell, i) => {
           obj[cols[i]] = cell ? cell.v : '';
         });
         return obj;
       });
-      const galleryData = data.slice(1);
+      const galleryData = data.slice(1);*/
 
       // Carousel: show first 8 images
       const carouselImages = document.getElementById('carousel-images');
