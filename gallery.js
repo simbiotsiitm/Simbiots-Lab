@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="gallery-overlay-title">${item.title}</div>
             <div class="gallery-overlay-date">${item.date}</div>
             <div class="gallery-overlay-links">
-              ${item.link1 ? `<a href="${item.link1}" target="_blank"><i class="fas fa-link"></i> Link 1</a>` : ''}
-              ${item.link2 ? `<a href="${item.link2}" target="_blank"><i class="fas fa-link"></i> Link 2</a>` : ''}
+              ${item.link ? `<a href="${item.link}" target="_blank"><i class="fas fa-link"></i> Link </a>` : ''}
+              
             </div>
           </div>
         </div>
