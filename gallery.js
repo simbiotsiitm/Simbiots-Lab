@@ -50,10 +50,15 @@ document.addEventListener("DOMContentLoaded", function() {
       const modalImg = document.getElementById('gallery-modal-img');
       const closeBtn = document.querySelector('.gallery-modal-close');
 
-      document.body.addEventListener('dblclick', function(e) {
-        if (e.target.matches('.gallery-item img')) {
-          modal.style.display = 'flex';
-          modalImg.src = e.target.src;
+      // Attach double-click to the gallery container for delegation
+      document.getElementById('gallery-container').addEventListener('dblclick', function(e) {
+        const galleryItem = e.target.closest('.gallery-item');
+        if (galleryItem) {
+          const img = galleryItem.querySelector('img');
+          if (img) {
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+          }
         }
       });
 
