@@ -80,3 +80,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('gallery-modal');
+  const modalImg = document.getElementById('gallery-modal-img');
+  const closeBtn = document.querySelector('.gallery-modal-close');
+
+  document.body.addEventListener('dblclick', function(e) {
+    if (e.target.matches('.gallery-item img')) {
+      modal.style.display = 'flex';
+      modalImg.src = e.target.src;
+    }
+  });
+
+  closeBtn.onclick = function() {
+    modal.style.display = 'none';
+    modalImg.src = '';
+  };
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  };
+});
