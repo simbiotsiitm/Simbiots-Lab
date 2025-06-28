@@ -5,21 +5,18 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(res => res.text())
     .then(text => {
       const json = JSON.parse(text.substr(47).slice(0, -2));
-      const cols = json.table.cols.map(col => col.label.trim().toLowerCase().replace(/\s+/g, '_'));
-      const data = json.table.rows.map(row => {
-        if (!row.c || row.c.every(cell => !cell || cell.v === null || cell.v === '')) return null;
+      const rows = json.table.rows;
+
+      // Use the first row as headers
+      const headers = rows[0].c.map(cell => cell && cell.v ? cell.v.trim().replace(/\s+/g, '_').toLowerCase() : '');
+      // Now map the rest of the rows to objects
+      const galleryData = rows.slice(1).map(row => {
         const obj = {};
         row.c.forEach((cell, i) => {
-          obj[cols[i]] = cell && cell.v ? cell.v : '';
+          obj[headers[i]] = cell && cell.v ? cell.v : '';
         });
         return obj;
-      }).filter(Boolean);
-
-      // Skip header row if present
-      let galleryData = data;
-      if (galleryData.length && galleryData[0].image_url === 'image_url') {
-        galleryData = galleryData.slice(1);
-      }
+      });
 
       // Carousel: show first 8 images
       const carouselImages = document.getElementById('carousel-images');
@@ -75,3 +72,11 @@ document.addEventListener("DOMContentLoaded", function() {
         btn.classList.add('active');
         const filter = btn.dataset.filter;
         if (filter === 'all') {
+          renderGallery(galleryData);
+        } else {
+          renderGallery(galleryData.filter(item => item.type.toLowerCase() === filter));
+        }
+      };
+    });
+  }
+});
