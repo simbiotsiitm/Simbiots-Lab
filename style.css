@@ -392,3 +392,103 @@ body.light-theme .navbar-right .dropbtn {
     color: #23272f !important;
   }
 }
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    height: auto;
+    padding: 0 10px;
+  }
+  .hamburger {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    z-index: 1001;
+    cursor: pointer;
+    display: block;
+  }
+  .navbar-right {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #222;
+    width: 100vw;
+    flex-direction: column;
+    z-index: 1000;
+  }
+  .navbar-right.active {
+    display: flex;
+  }
+  .navbar-left {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+/* --- MOBILE NAVBAR FIXES --- */
+@media (max-width: 768px) {
+  .navbar {
+    height: 56px;              /* Reduce navbar height */
+    padding: 0 2px;
+    min-height: 56px;
+  }
+  .navbar-left {
+    width: auto;
+    min-width: 0;
+    max-width: 60vw;
+    height: 56px;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+  }
+  .toggle-container {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    height: 56px;
+    gap: 8px;
+    position: static;
+  }
+  .toggle-block {
+    position: static;
+    width: auto;
+    height: 56px;
+    opacity: 1;
+    gap: 8px;
+  }
+  .profile-block img,
+  .iitlogo {
+    height: 38px;
+    width: 38px;
+  }
+  .prof-name, .iit-heading, .dept-name {
+    font-size: 0.82rem;
+    white-space: normal;
+  }
+  .hamburger {
+    font-size: 1.5rem;
+    right: 56px; /* Leave space for theme switch */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 101;
+    display: block;
+    position: absolute;
+  }
+  .theme-switch {
+    margin-left: 8px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 102;
+  }
+  .navbar-right {
+    top: 56px;
+  }
+  .iitm-block {
+    display: none;
+  }
+}
