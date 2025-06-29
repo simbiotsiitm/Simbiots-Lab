@@ -69,7 +69,6 @@
   display: block;
 }
 
-/* Filter Buttons */
 .alumni-filter-btns {
   display: flex;
   gap: 18px;
@@ -97,8 +96,6 @@
   transform: scale(1.07);
   box-shadow: 0 4px 18px #ff512f44;
 }
-
-/* Cards */
 .alumni-cards {
   display: flex;
   flex-wrap: wrap;
@@ -395,7 +392,6 @@ body.light-theme .alumni-card-link:hover {
   box-shadow: 0 2px 8px #ffd70044;
 }
 
-/* Dark theme support */
 body.dark-theme .alumni-card {
   background: #232946;
   color: #eaf6ff;
@@ -523,7 +519,6 @@ body.dark-theme .alumni-card-link:hover {
   box-shadow: 0 2px 8px #ffd70044;
 }
 
-/* Dark theme support */
 body.dark-theme .alumni-card-horizontal {
   background: #232946;
   color: #eaf6ff;
@@ -655,8 +650,6 @@ body.dark-theme .alumni-card-link:hover {
   color: #232946;
   box-shadow: 0 2px 8px #ffd70044;
 }
-
-/* Dark theme support */
 body.dark-theme .alumni-card-horizontal {
   background: #232946;
   color: #eaf6ff;
