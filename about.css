@@ -652,16 +652,26 @@ body.dark-theme {
   list-style: none; /* Remove dots */
 }
 
+.role-details-list {
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 2px 8px #fff1;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-top: 12px;
+  list-style: none; 
+}
+
 .role-details-list li {
   margin-bottom: 10px;
   font-size: 1.05em;
-  color: #eaf6ff;
-  /* Remove dot for extra safety */
   list-style: none;
 }
 
 body.light-theme .role-details-list {
   background: #f7fafc;
-  color: #233554;
+  color: black;
   box-shadow: 0 4px 24px #aaa2;
+}
+body.light-theme .role-details-list li {
+  color: #222 !important;
 }
