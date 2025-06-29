@@ -4,37 +4,49 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.toggle('dark-theme');
     document.body.classList.toggle('light-theme');
   });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
   const carousel = document.getElementById('collab-carousel');
   const cards = carousel.querySelectorAll('.collab-card');
-  const cardWidth = cards[0].offsetWidth + 32; // card width + gap
+  const dotsContainer = document.querySelector('.carousel-dots');
   let index = 0;
   let interval;
 
-  function moveCarousel() {
-    index++;
-    if (index > cards.length - Math.floor(carousel.parentElement.offsetWidth / cardWidth)) {
-      // Pause at end, then reset
-      clearInterval(interval);
-      setTimeout(() => {
-        index = 0;
-        carousel.style.transition = "none";
-        carousel.style.transform = `translateX(0px)`;
-        // Force reflow for smooth transition
-        void carousel.offsetWidth;
-        carousel.style.transition = "transform 0.7s cubic-bezier(.4,0,.2,1)";
-        interval = setInterval(moveCarousel, 2200);
-      }, 2200);
-    } else {
-      carousel.style.transform = `translateX(-${index * cardWidth}px)`;
-    }
+  function renderDots() {
+    dotsContainer.innerHTML = '';
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'carousel-dot' + (i === index ? ' active' : '');
+      dot.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+        resetInterval();
+      });
+      dotsContainer.appendChild(dot);
+    });
   }
 
+  function updateCarousel() {
+    const cardWidth = cards[0].offsetWidth + 32;
+    carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+    renderDots();
+  }
+
+  function moveCarousel() {
+    index = (index + 1) % cards.length;
+    updateCarousel();
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(moveCarousel, 2200);
+  }
+
+  renderDots();
+  updateCarousel();
   interval = setInterval(moveCarousel, 2200);
 
-  // Pause on hover
   carousel.addEventListener('mouseenter', () => clearInterval(interval));
-  carousel.addEventListener('mouseleave', () => interval = setInterval(moveCarousel, 2200));
+  carousel.addEventListener('mouseleave', resetInterval);
+
+  window.addEventListener('resize', updateCarousel);
 });
