@@ -351,3 +351,44 @@ body:not(.dark-theme) .switch-thumb {
 .theme-switch.active .switch-thumb {
   left: 26px;
 }
+body.dark-theme .navbar {
+  background: #111 !important;
+  color: white !important;
+}
+body.light-theme .navbar {
+  background: #fff !important;
+  color: black !important;
+}
+
+/* Desktop navbar links */
+body.dark-theme .navbar-right a,
+body.dark-theme .navbar-right .dropbtn {
+  color: #fff !important;
+}
+body.light-theme .navbar-right a,
+body.light-theme .navbar-right .dropbtn {
+  color: #23272f !important;
+}
+
+/* Mobile navbar background and text */
+@media (max-width: 768px) {
+  body.dark-theme .navbar-right,
+  body.dark-theme .navbar-right.show {
+    background: #111 !important;
+    color: white !important;
+  }
+  body.dark-theme .navbar-right a,
+  body.dark-theme .navbar-right .dropbtn {
+    color: #fff !important;
+  }
+
+  body.light-theme .navbar-right,
+  body.light-theme .navbar-right.show {
+    background: #fff !important;
+    color: black !important;
+  }
+  body.light-theme .navbar-right a,
+  body.light-theme .navbar-right .dropbtn {
+    color: #23272f !important;
+  }
+}
