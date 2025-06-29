@@ -298,8 +298,6 @@ body.dark-theme .dept-name {
 .footer {
   text-align: center;
   padding: 20px;
-  background-color: #111;
-  color: #aaa;
   font-size: 0.9rem;
 }
 
@@ -491,4 +489,15 @@ body.light-theme .navbar-right .dropbtn {
   .iitm-block {
     display: none;
   }
+}
+body.light-theme .footer {
+  background: #f7f7f7;
+  color: #23272f;
+  border-top: 1px solid #e0e0e0;
+}
+
+body.dark-theme .footer {
+  background: #181818;
+  color: #ccc;
+  border-top: 1px solid #333;
 }
