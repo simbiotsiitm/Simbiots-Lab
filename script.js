@@ -10,8 +10,8 @@ window.addEventListener("load", function () {
     setTimeout(function () {
       splash.style.display = "none";
       document.getElementById("main-content").style.display = "block";
-    }, 6000); 
-  }, 6000); 
+    }, 4000); 
+  }, 4000); 
 });
 
 setTimeout(function () {
@@ -20,7 +20,7 @@ setTimeout(function () {
   const mainContent = document.getElementById("main-content");
   mainContent.style.display = "block";
   mainContent.classList.add("show");
-}, 1000);
+}, 4000);
 
 
 
