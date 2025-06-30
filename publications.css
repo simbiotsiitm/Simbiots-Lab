@@ -79,7 +79,6 @@ body.dark-theme .pub-hero-quote {
   to { opacity: 1; transform: none; }
 }
 
-/* Dropdown */
 .pub-filter-section {
   display: flex;
   justify-content: center;
@@ -142,11 +141,10 @@ body.dark-theme .pub-dropdown-content button:hover {
   background: #39393988;
 }
 
-/* Publications List */
 .pub-list-section {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto 64px auto;
-  padding: 0 16px;
+  padding: 0 8px;
 }
 .pub-year-section {
   margin-bottom: 48px;
@@ -171,15 +169,18 @@ body.dark-theme .pub-dropdown-content button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  justify-content: space-between;
 }
 .pub-item {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 16px #1fa2ff22;
   padding: 16px;
-  flex: 1 1 260px;
+  flex: 1 1 28%;
+  max-width: 32%;
   min-width: 260px;
-  max-width: 320px;
+  box-sizing: border-box;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -207,21 +208,31 @@ body.dark-theme .pub-img {
   background: #393939;
 }
 .pub-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 6px;
-  color: #232946;
+  background: linear-gradient(90deg, #1fa2ff, #a21caf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
   line-height: 1.3;
   min-height: 48px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
 }
 body.dark-theme .pub-title {
-  color: #e0e7ff;
+  background: linear-gradient(90deg, #a6ffcb, #1fa2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 .pub-authors {
-  font-size: 0.95rem;
+  font-size: 0.5rem;
   color: #666;
   margin-bottom: 4px;
-  min-height: 36px;
+  min-height: 24px;
 }
 body.dark-theme .pub-authors {
   color: #bdbdbd;
@@ -239,10 +250,8 @@ body.dark-theme .pub-journal {
   to { opacity: 1; transform: none;}
 }
 
-/* Responsive */
 @media (max-width: 700px) {
   .pub-items { flex-direction: column; gap: 16px;}
   .pub-item { max-width: 100%; min-width: 0;}
   .pub-hero-title { font-size: 2.1rem;}
-  .pub-year-heading { font-size: 1.3rem;}
-}
+  .pub-year-heading { font-
