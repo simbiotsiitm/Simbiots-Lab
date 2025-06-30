@@ -10,8 +10,8 @@ window.addEventListener("load", function () {
     setTimeout(function () {
       splash.style.display = "none";
       document.getElementById("main-content").style.display = "block";
-    }, 4000); // matches fade-out duration
-  }, 4000); // splash visible for 2s before fade starts
+    }, 6000); 
+  }, 6000); 
 });
 
 setTimeout(function () {
