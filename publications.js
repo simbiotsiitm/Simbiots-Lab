@@ -102,6 +102,27 @@ fetchPublications().then(pubs => {
   renderDropdown();
   renderPublications();
 });*/
+const pubQuotes = {
+  light: "Our research journey is reflected in these pages. Explore our diverse and impactful publications.",
+  dark: "Innovation thrives in the dark. Discover our groundbreaking work through these publications."
+};
+
+function setPubQuote() {
+  const quoteEl = document.getElementById('pub-hero-quote');
+  if (quoteEl) {
+    if (document.body.classList.contains('dark-theme')) {
+      quoteEl.textContent = pubQuotes.dark;
+    } else {
+      quoteEl.textContent = pubQuotes.light;
+    }
+  }
+}
+setPubQuote();
+const themeSwitch = document.getElementById('theme-switch');
+if (themeSwitch) {
+  themeSwitch.addEventListener('click', setPubQuote);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1FPgUPb-V7qzhAuO4z2bsO0zcnlp3gzkkQKW2XDqjvXQ/gviz/tq?tqx=out:json';
   const pubSection = document.getElementById('pub-list-section');
