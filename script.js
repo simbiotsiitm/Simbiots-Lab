@@ -1,5 +1,14 @@
 let currentIsProfile = true;
 
+(function() {
+  const theme = localStorage.getItem('theme');
+  if (theme === 'dark') {
+    document.body.classList.add('dark-theme');
+  } else {
+    document.body.classList.remove('dark-theme');
+  }
+})();
+
 window.addEventListener("load", function () {
   setTimeout(function () {
     const splash = document.getElementById("splash-screen");
@@ -18,7 +27,6 @@ window.addEventListener("load", function () {
 function toggleLeftSection() {
   const profile = document.querySelector('.profile-block');
   const iitm = document.querySelector('.iitm-block');
-
   if (currentIsProfile) {
     profile.classList.remove('active');
     iitm.classList.add('active');
@@ -26,25 +34,25 @@ function toggleLeftSection() {
     iitm.classList.remove('active');
     profile.classList.add('active');
   }
-
   currentIsProfile = !currentIsProfile;
 }
 
-// Auto toggle every 4 seconds
 setInterval(toggleLeftSection, 2000);
 
-// Hamburger menu
 function toggleMenu() {
   const navLinks = document.getElementById('nav-links');
   navLinks.classList.toggle('show');
 }
 
-
-// Dark/Light theme toggle
 function toggleTheme() {
   document.body.classList.toggle('dark-theme');
   const switchEl = document.getElementById('theme-switch');
   switchEl.classList.toggle('active', document.body.classList.contains('dark-theme'));
+  if (document.body.classList.contains('dark-theme')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
