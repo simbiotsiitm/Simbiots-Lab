@@ -23,6 +23,10 @@ window.addEventListener("load", function () {
     }, 3200); 
   }, 3200); 
 });
+setTimeout(function () {
+  splash.style.display = "none";
+  document.getElementById("main-content").style.display = "block";
+}, 1000);
 
 function toggleLeftSection() {
   const profile = document.querySelector('.profile-block');
