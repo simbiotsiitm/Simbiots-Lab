@@ -227,6 +227,7 @@ body.dark-theme .pub-title {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.pub-authors{
   font-size: 0.5rem;
   color: #666;
   margin-bottom: 4px;
