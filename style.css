@@ -33,7 +33,7 @@ body.dark-theme {
 #splash-screen {
   position: fixed;
   z-index: 9999;
-  background: #fff;
+  background: #222;
   width: 100vw;
   height: 100vh;
   top: 0; left: 0;
