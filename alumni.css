@@ -604,7 +604,7 @@ body.dark-theme .alumni-card-link:hover {
   font-size: 1em;
   font-weight: 600;
   flex: 1;
-  text-align: left;
+  text-align: center;
 }
 .alumni-card-link {
   color: #1fa2ff;
@@ -664,8 +664,7 @@ body.dark-theme .alumni-card-link:hover {
 .alumni-card-coord-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  justify-content: start;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -678,5 +677,7 @@ body.dark-theme .alumni-card-link:hover {
 }
 .alumni-card-links-row {
   display: flex;
+  flex-direction:row;
+  justify-content: center;
   gap: 18px;
 }
