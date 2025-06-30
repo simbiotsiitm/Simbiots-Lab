@@ -1,17 +1,18 @@
 let currentIsProfile = true;
 
-// Splash screen with fade-out
 window.addEventListener("load", function () {
   setTimeout(function () {
     const splash = document.getElementById("splash-screen");
-    splash.classList.add("fade-out");
-
-    // After fade-out ends (1s), hide splash and show main content
+    if (splash) splash.classList.add("fade-out");
     setTimeout(function () {
-      splash.style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-    }, 4000); 
-  }, 4000); 
+      if (splash) splash.style.display = "none";
+      const mainContent = document.getElementById("main-content");
+      if (mainContent) {
+        mainContent.style.display = "block";
+        mainContent.classList.add("show");
+      }
+    }, 3200); 
+  }, 3200); 
 });
 
 setTimeout(function () {
