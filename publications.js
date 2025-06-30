@@ -78,7 +78,6 @@ function renderPublications() {
         <img class="pub-img" src="${pub.Image || 'images/default_pub.jpg'}" alt="Publication Image" />
         <div class="pub-title">${pub.Title}</div>
         <div class="pub-authors">${pub.Authors}</div>
-        <div class="pub-journal">${pub.Journal}</div>
       `;
       itemsDiv.appendChild(item);
     });
