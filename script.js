@@ -15,11 +15,13 @@ window.addEventListener("load", function () {
 });
 
 setTimeout(function () {
+  const splash = document.getElementById("splash-screen");
   splash.style.display = "none";
   const mainContent = document.getElementById("main-content");
   mainContent.style.display = "block";
   mainContent.classList.add("show");
 }, 1000);
+
 
 
 
