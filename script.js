@@ -23,20 +23,6 @@ window.addEventListener("load", function () {
     }, 2500); 
   }, 2500); 
 });
-window.addEventListener("load", function () {
-  setTimeout(function () {
-    const splash = document.getElementById("splash-screen-main");
-    if (splash) splash.classList.add("fade-out");
-    setTimeout(function () {
-      if (splash) splash.style.display = "none";
-      const mainContent = document.getElementById("main-content");
-      if (mainContent) {
-        mainContent.style.display = "block";
-        mainContent.classList.add("show");
-      }
-    }, 3200); 
-  }, 3200); 
-});
 setTimeout(function () {
   splash.style.display = "none";
   document.getElementById("main-content").style.display = "block";
