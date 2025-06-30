@@ -103,7 +103,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  justify-content: center;
   min-height: 220px;
   padding-bottom: 48px;
 }
