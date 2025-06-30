@@ -20,7 +20,7 @@ setTimeout(function () {
   const mainContent = document.getElementById("main-content");
   mainContent.style.display = "block";
   mainContent.classList.add("show");
-}, 4000);
+}, 3000);
 
 
 
