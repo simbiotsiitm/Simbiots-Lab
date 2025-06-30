@@ -104,6 +104,7 @@
   flex-wrap: wrap;
   gap: 32px;
   min-height: 220px;
+  justify-content:center;
   padding:8px;
 }
 
