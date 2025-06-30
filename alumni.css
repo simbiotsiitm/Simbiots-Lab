@@ -663,7 +663,8 @@ body.dark-theme .alumni-card-link:hover {
 
 .alumni-card-coord-row {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
   justify-content: start;
   gap: 16px;
   padding-left: 154px; /* aligns with info block start */
