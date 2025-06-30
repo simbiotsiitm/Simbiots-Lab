@@ -215,7 +215,6 @@ body.dark-theme .pub-img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   line-height: 1.3;
   min-height: 48px;
   letter-spacing: 0.5px;
@@ -223,12 +222,11 @@ body.dark-theme .pub-img {
 }
 body.dark-theme .pub-title {
   background: linear-gradient(90deg, #a6ffcb, #1fa2ff);
+  background: linear-gradient(90deg, #a6ffcb, #1fa2ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
-.pub-authors {
   font-size: 0.5rem;
   color: #666;
   margin-bottom: 4px;
