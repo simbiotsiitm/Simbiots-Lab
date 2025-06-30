@@ -13,6 +13,22 @@ body, html {
   font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth;
 }
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Montserrat', 'Bree Serif', serif;
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 40%, #a6ffcb 80%, #f0abfc 100%);
+  background-attachment: fixed;
+  transition: background 0.5s;
+}
+body.dark-theme {
+  background:
+    radial-gradient(ellipse at 60% 40%, #4d4f53 0%, #444546 80%),
+    linear-gradient(120deg, #232526 0%, #282a2d 100%);
+  background-attachment: fixed;
+  transition: background 0.5s;
+}
+
 #splash-screen {
   position: fixed;
   top: 0;
@@ -25,7 +41,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: 1500;
 }
 
 .splash-text {
@@ -83,11 +99,11 @@ body, html {
   to { opacity: 1; transform: translateX(0); }
 }
 
-body.dark-theme { background: #111; color: #eee; }
+body.dark-theme { color: #eee; }
 body.dark-theme .navbar { background: black; color: white; }
 body.dark-theme .dropdown-content { background: #333; }
 body.dark-theme .footer { background: #222; color: #ccc; }
-body.light-theme { background: white; color: black; }
+body.light-theme {color: black; }
 body.light-theme .navbar { background: white !important; color: black !important; }
 body.light-theme .dropdown-content { background: white; }
 body.light-theme .footer { background: white; color: black; }
@@ -491,7 +507,7 @@ body.light-theme .navbar-right .dropbtn {
   }
 }
 body.light-theme .footer {
-  background: #f7f7f7;
+  background: #f7f7f7 !important;
   color: #23272f;
   border-top: 1px solid #e0e0e0;
 }
