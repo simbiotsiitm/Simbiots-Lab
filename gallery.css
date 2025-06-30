@@ -2,27 +2,14 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'Montserrat', 'Bree Serif', serif;
-  /* Light theme smoky gradient */
-  background: 
-    radial-gradient(ellipse at 20% 30%, #eaf6ffcc 0%, #a6ffcb55 40%, #fff0 80%),
-    radial-gradient(ellipse at 80% 70%, #1fa2ff33 0%, #ffd70033 60%, #fff0 100%),
-    linear-gradient(120deg, #f6f8fa 0%, #eaf6ff 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 40%, #a6ffcb 100%);
   background-attachment: fixed;
   transition: background 0.5s;
 }
-
-/* Dark theme smoky gradient */
 body.dark-theme {
-  background: 
-    radial-gradient(ellipse at 20% 30%, #232946cc 0%, #1fa2ff55 40%, #0000 80%),
-    radial-gradient(ellipse at 80% 70%, #ffd70033 0%, #1fa2ff33 60%, #0000 100%),
-    linear-gradient(120deg, #232946 0%, #232946 100%);
+  background: linear-gradient(135deg, #18181b 0%, #312e81 50%, #a21caf 100%);
   background-attachment: fixed;
   transition: background 0.5s;
-}
-body, body.dark-theme {
-  background-size: 200% 200%;
-  animation: smokyMove 18s ease-in-out infinite alternate;
 }
 @keyframes smokyMove {
   0% { background-position: 0% 0%, 100% 100%, 0% 0%; }
@@ -35,13 +22,6 @@ body, body.dark-theme {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-.gallery-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  opacity: 1;
-  transition: opacity 0.5s;
 }
 .gallery-hero-content {
   position: relative;
@@ -94,10 +74,14 @@ body, body.dark-theme {
   font-size: 1.3rem;
   font-style: italic;
   margin-bottom: 18px;
-  color: #fff;
-  text-shadow: 0 2px 12px #23294655;
+  color: #232946;
+  text-shadow: 0 2px 12px #e0e7ffcc;
   animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1);
   z-index: 2;
+}
+body.dark-theme .gallery-hero-quote {
+  color: #fff;
+  text-shadow: 0 2px 12px #23294655;
 }
 .gallery-hero-img {
   width: 120px;
@@ -109,7 +93,6 @@ body, body.dark-theme {
 keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none; } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* Carousel */
 .gallery-carousel-container {
   max-width: 900px;
   margin: 0 auto 32px auto;
@@ -126,8 +109,6 @@ keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opaci
   border-radius: 18px;
   box-shadow: 0 2px 12px #ffd70033;
 }
-
-/* Filter Buttons */
 .gallery-filters {
   display: flex;
   justify-content: center;
@@ -215,19 +196,6 @@ keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opaci
   margin-right: 12px;
   font-size: 1.2em;
   text-decoration: underline;
-}
-.gallery-bg-light {
-  background: url('images/gallery-bg-light.png') center/cover no-repeat, linear-gradient(120deg, #eaf6ff 0%, #a6ffcb 100%);
-}
-.gallery-bg-dark {
-  background: url('images/gallery-bg-dark.png') center/cover no-repeat, linear-gradient(120deg, #232946 0%, #1fa2ff 100%);
-  opacity: 0;
-}
-body.dark-theme .gallery-bg-light {
-  opacity: 0;
-}
-body.dark-theme .gallery-bg-dark {
-  opacity: 1;
 }
 .gallery-modal {
   display: none;
