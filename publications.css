@@ -246,4 +246,5 @@ body.dark-theme .pub-authors {
   .pub-items { flex-direction: column; gap: 16px;}
   .pub-item { max-width: 100%; min-width: 0;}
   .pub-hero-title { font-size: 2.1rem;}
-  .pub-year-heading { font-
+  .pub-year-heading { font-size: 1.3rem;}
+}
