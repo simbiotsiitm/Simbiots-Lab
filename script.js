@@ -15,17 +15,6 @@ window.addEventListener("load", function () {
   }, 3200); 
 });
 
-setTimeout(function () {
-  const splash = document.getElementById("splash-screen");
-  splash.style.display = "none";
-  const mainContent = document.getElementById("main-content");
-  mainContent.style.display = "block";
-  mainContent.classList.add("show");
-}, 3000);
-
-
-
-
 function toggleLeftSection() {
   const profile = document.querySelector('.profile-block');
   const iitm = document.querySelector('.iitm-block');
