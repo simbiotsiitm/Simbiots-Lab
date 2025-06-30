@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'Montserrat', 'Bree Serif', serif;
-  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 40%, #a6ffcb 80%, #f0abfc 100%);
+  background: #fff;
   background-attachment: fixed;
   transition: background 0.5s;
 }
