@@ -117,16 +117,10 @@
   padding: 24px;
   margin: 24px 0;
   width: 100%;
-  max-width: 260px;
+  max-width: 360px;
   border: 1px solid #e3e6ee;
   gap: 18px;
   transition: box-shadow 0.3s, transform 0.3s;
-}
-.alumni-card-horizontal {
-  width: 100%;
-  max-width: 460px; /* reduced from 540px */
-  padding: 20px;
-  gap: 16px;
 }
 .alumni-card-horizontal:hover {
   box-shadow: 0 8px 40px #1fa2ff33, 0 2px 12px #ffd70033;
