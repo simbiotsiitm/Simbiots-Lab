@@ -237,14 +237,6 @@ body.dark-theme .pub-title {
 body.dark-theme .pub-authors {
   color: #bdbdbd;
 }
-.pub-journal {
-  font-size: 0.92rem;
-  color: #1fa2ff;
-  margin-bottom: 2px;
-}
-body.dark-theme .pub-journal {
-  color: #a6ffcb;
-}
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(24px);}
   to { opacity: 1; transform: none;}
