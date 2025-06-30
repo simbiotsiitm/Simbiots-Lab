@@ -667,7 +667,6 @@ body.dark-theme .alumni-card-link:hover {
   justify-content: space-around;
   justify-content: start;
   gap: 16px;
-  padding-left: 154px; /* aligns with info block start */
 }
 
 .alumni-card-workplace-img {
