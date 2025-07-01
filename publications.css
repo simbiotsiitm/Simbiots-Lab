@@ -169,7 +169,7 @@ body.dark-theme .pub-dropdown-content button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .pub-item {
   background: #fff;
