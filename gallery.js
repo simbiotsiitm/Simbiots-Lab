@@ -1,15 +1,15 @@
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1TD-Ivc6yq-aC9OZSMFTzZBtpuR6tJ7T1gx75d6u8kZg/gviz/tq?tqx=out:json&sheet=Sheet1';
 
 document.addEventListener("DOMContentLoaded", function() {
+  let currentModalIndex = -1;
+  let currentGalleryImages = [];
+
   fetch(SHEET_URL)
     .then(res => res.text())
     .then(text => {
       const json = JSON.parse(text.substr(47).slice(0, -2));
       const rows = json.table.rows;
-
-      // Use the first row as headers
       const headers = rows[0].c.map(cell => cell && cell.v ? cell.v.trim().replace(/\s+/g, '_').toLowerCase() : '');
-      // Now map the rest of the rows to objects
       const galleryData = rows.slice(1).map(row => {
         const obj = {};
         row.c.forEach((cell, i) => {
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return obj;
       });
 
-      // Carousel: show first 8 images
       const carouselImages = document.getElementById('carousel-images');
       galleryData.slice(0, 8).forEach(img => {
         carouselImages.innerHTML += `
@@ -39,18 +38,13 @@ document.addEventListener("DOMContentLoaded", function() {
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
       });
 
-      // Masonry Gallery
       renderGallery(galleryData);
-
-      // Filters
       setupFilters(galleryData);
 
-      // ---- Modal logic START ----
       const modal = document.getElementById('gallery-modal');
       const modalImg = document.getElementById('gallery-modal-img');
       const closeBtn = document.querySelector('.gallery-modal-close');
 
-      // Attach double-click to the gallery container for delegation
       document.getElementById('gallery-container').addEventListener('click', function(e) {
         const galleryItem = e.target.closest('.gallery-item');
         if (galleryItem) {
@@ -58,6 +52,9 @@ document.addEventListener("DOMContentLoaded", function() {
           if (img) {
             modal.style.display = 'flex';
             modalImg.src = img.src;
+            const allImages = Array.from(document.querySelectorAll('.gallery-item img'));
+            currentGalleryImages = allImages;
+            currentModalIndex = allImages.findIndex(im => im.src === img.src);
           }
         }
       });
@@ -65,14 +62,31 @@ document.addEventListener("DOMContentLoaded", function() {
       closeBtn.onclick = function() {
         modal.style.display = 'none';
         modalImg.src = '';
+        currentModalIndex = -1;
       };
       modal.onclick = function(e) {
         if (e.target === modal) {
           modal.style.display = 'none';
           modalImg.src = '';
+          currentModalIndex = -1;
         }
       };
-      // ---- Modal logic END ----
+
+      document.addEventListener('keydown', function(e) {
+        if (modal.style.display === 'flex' && currentModalIndex !== -1 && currentGalleryImages.length) {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            currentModalIndex = (currentModalIndex + 1) % currentGalleryImages.length;
+            modalImg.src = currentGalleryImages[currentModalIndex].src;
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            currentModalIndex = (currentModalIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+            modalImg.src = currentGalleryImages[currentModalIndex].src;
+          } else if (e.key === 'Escape') {
+            modal.style.display = 'none';
+            modalImg.src = '';
+            currentModalIndex = -1;
+          }
+        }
+      });
     });
 
   function renderGallery(items) {
