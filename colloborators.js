@@ -6,62 +6,110 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   const carousel = document.getElementById('collab-carousel');
-  const cards = carousel.querySelectorAll('.collab-card');
   const dotsContainer = document.querySelector('.carousel-dots');
   const leftBtn = document.getElementById('carousel-left');
   const rightBtn = document.getElementById('carousel-right');
-  let index = 0;
+  let cards = Array.from(carousel.querySelectorAll('.collab-card'));
+  let total = cards.length;
+
+  // Clone first and last card for infinite effect
+  const firstClone = cards[0].cloneNode(true);
+  const lastClone = cards[total - 1].cloneNode(true);
+  firstClone.classList.add('clone');
+  lastClone.classList.add('clone');
+  carousel.appendChild(firstClone);
+  carousel.insertBefore(lastClone, cards[0]);
+
+  // Update cards NodeList after cloning
+  cards = Array.from(carousel.querySelectorAll('.collab-card'));
+  total = cards.length - 2; // exclude clones for dot logic
+
+  let index = 1; // Start at first real card
   let interval;
+
+  function getCardWidth() {
+    const card = carousel.querySelector('.collab-card');
+    return card ? card.offsetWidth + 32 : 340; // 32 is the gap
+  }
 
   function renderDots() {
     dotsContainer.innerHTML = '';
-    cards.forEach((_, i) => {
+    for (let i = 0; i < total; i++) {
       const dot = document.createElement('span');
-      dot.className = 'carousel-dot' + (i === index ? ' active' : '');
+      dot.className = 'carousel-dot' + (i === ((index - 1 + total) % total) ? ' active' : '');
       dot.addEventListener('click', () => {
-        index = i;
+        index = i + 1;
         updateCarousel();
         resetInterval();
       });
       dotsContainer.appendChild(dot);
-    });
+    }
   }
 
-  function updateCarousel() {
-    const cardWidth = cards[0].offsetWidth + 32;
-    carousel.style.transition = 'transform 0.6s cubic-bezier(.77,0,.18,1)';
+  function updateCarousel(animate = true) {
+    const cardWidth = getCardWidth();
+    if (animate) {
+      carousel.style.transition = 'transform 0.6s cubic-bezier(.77,0,.18,1)';
+    } else {
+      carousel.style.transition = 'none';
+    }
     carousel.style.transform = `translateX(-${index * cardWidth}px)`;
     renderDots();
   }
 
-  function moveCarousel() {
-    index = (index + 1) % cards.length;
+  function moveNext() {
+    index++;
+    updateCarousel();
+  }
+
+  function movePrev() {
+    index--;
     updateCarousel();
   }
 
   function resetInterval() {
     clearInterval(interval);
-    interval = setInterval(moveCarousel, 2200);
+    interval = setInterval(moveNext, 2500);
   }
 
   leftBtn.addEventListener('click', () => {
-    index = (index - 1 + cards.length) % cards.length;
-    updateCarousel();
+    movePrev();
     resetInterval();
   });
 
   rightBtn.addEventListener('click', () => {
-    index = (index + 1) % cards.length;
-    updateCarousel();
+    moveNext();
     resetInterval();
   });
 
-  renderDots();
-  updateCarousel();
-  interval = setInterval(moveCarousel, 2200);
+  // Handle transition end for seamless looping
+  carousel.addEventListener('transitionend', () => {
+    const cardWidth = getCardWidth();
+    if (index === 0) {
+      carousel.style.transition = 'none';
+      index = total;
+      carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+      // Force reflow to apply the transform instantly
+      carousel.offsetHeight;
+      carousel.style.transition = 'transform 0.6s cubic-bezier(.77,0,.18,1)';
+    }
+    if (index === total + 1) {
+      carousel.style.transition = 'none';
+      index = 1;
+      carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+      carousel.offsetHeight;
+      carousel.style.transition = 'transform 0.6s cubic-bezier(.77,0,.18,1)';
+    }
+  });
 
+  // Responsive: recalculate on resize
+  window.addEventListener('resize', () => updateCarousel(false));
+
+  // Pause on hover
   carousel.addEventListener('mouseenter', () => clearInterval(interval));
   carousel.addEventListener('mouseleave', resetInterval);
 
-  window.addEventListener('resize', updateCarousel);
+  renderDots();
+  updateCarousel(false);
+  interval = setInterval(moveNext, 2500);
 });
