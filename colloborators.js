@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const carousel = document.getElementById('collab-carousel');
   const cards = carousel.querySelectorAll('.collab-card');
   const dotsContainer = document.querySelector('.carousel-dots');
+  const leftBtn = document.getElementById('carousel-left');
+  const rightBtn = document.getElementById('carousel-right');
   let index = 0;
   let interval;
 
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function updateCarousel() {
     const cardWidth = cards[0].offsetWidth + 32;
+    carousel.style.transition = 'transform 0.6s cubic-bezier(.77,0,.18,1)';
     carousel.style.transform = `translateX(-${index * cardWidth}px)`;
     renderDots();
   }
@@ -40,6 +43,18 @@ document.addEventListener("DOMContentLoaded", function() {
     clearInterval(interval);
     interval = setInterval(moveCarousel, 2200);
   }
+
+  leftBtn.addEventListener('click', () => {
+    index = (index - 1 + cards.length) % cards.length;
+    updateCarousel();
+    resetInterval();
+  });
+
+  rightBtn.addEventListener('click', () => {
+    index = (index + 1) % cards.length;
+    updateCarousel();
+    resetInterval();
+  });
 
   renderDots();
   updateCarousel();
