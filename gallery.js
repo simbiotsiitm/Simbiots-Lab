@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const closeBtn = document.querySelector('.gallery-modal-close');
 
       // Attach double-click to the gallery container for delegation
-      document.getElementById('gallery-container').addEventListener('dblclick', function(e) {
+      document.getElementById('gallery-container').addEventListener('click', function(e) {
         const galleryItem = e.target.closest('.gallery-item');
         if (galleryItem) {
           const img = galleryItem.querySelector('img');
