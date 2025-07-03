@@ -98,16 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const news = [
-    { logo: 'images/home/neurology.png', headline: 'Doctor,will my aneurysm rupture', source: 'Neurology India', date: 'March 2025',link:'https://journals.lww.com/neur/fulltext/2025/03000/doctor,_will_my_aneurysm_rupture_.1.aspx' },
     { logo: 'images/home/neuro_news.jpg', headline: 'Mathematical model examines factors influencing risk of cerebral aneurysm rupture.', source: 'Neuro News', date: '06 Jan 2023',link:'https://neuronewsinternational.com/mathematical-model-examines-factors-influencing-risk-of-cerebral-aneurysm-rupture/' },
     { logo: 'images/home/hindu_news.png', headline: 'SCTIMST and IIT researchers create a mathematical model to predict rupture of aneurysms.', source: 'The Hindu', date: '16 Oct 2022',link:'https://www.thehindu.com/news/national/kerala/sctimst-and-iit-researchers-create-a-mathematical-model-to-predict-rupture-of-aneurysms/article66018212.ece' },
-    { logo: 'images/home/medical_news.png', headline: 'Researchers develop a mathematical model to predict aneurysm rupture risk.', source: 'The Medical News', date: '11 Oct 2022',link:'https://www.news-medical.net/news/20221011/Researchers-develop-a-mathematical-model-to-predict-aneurysm-rupture-risk.aspx' }
+    { logo: 'images/home/medical_news.png', headline: 'Researchers develop a mathematical model to predict aneurysm rupture risk.', source: 'The Medical News', date: '11 Oct 2022',link:'https://www.news-medical.net/news/20221011/Researchers-develop-a-mathematical-model-to-predict-aneurysm-rupture-risk.aspx' },
+    { logo: 'images/home/neurology.png', headline: 'Doctor,will my aneurysm rupture', source: 'Neurology India', date: 'March 2025',link:'https://journals.lww.com/neur/fulltext/2025/03000/doctor,_will_my_aneurysm_rupture_.1.aspx' }
   ];
 
-  const carouselTrack = document.getElementById('carousel-track');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
+const carouselTrack = document.getElementById('carousel-track');
+const prevBtn = document.getElementById('carousel-prev');
+const nextBtn = document.getElementById('carousel-next');
 
+if (carouselTrack && prevBtn && nextBtn) {
   function getCardWidth() {
     const card = carouselTrack.querySelector('.carousel-card');
     return card ? card.offsetWidth + 20 : 340;
@@ -195,13 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
   carouselTrack.addEventListener('mouseleave', () => {
     autoScroll = setInterval(next, 4000);
   });
+}
 
   const heroVideo = document.getElementById('hero-video');
   function setHeroVideo() {
     if (document.body.classList.contains('light-theme')) {
-      heroVideo.src = 'images/home/home_light.mp4';
+      heroVideo.src = 'videos/home_light.mp4';
     } else {
-      heroVideo.src = 'images/home/flowcut.mp4';
+      heroVideo.src = 'videos/flowcut.mp4';
     }
     heroVideo.load();
     heroVideo.play();
