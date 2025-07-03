@@ -581,9 +581,12 @@ body.light-theme .hero-video-section video {
 /* Carousel */
 .carousel-section {
   padding: 0 20px 60px 0px;
-  background: var(--bg);
+  background: #242323;
   text-align: center;
   margin: 0;
+}
+body.light-theme .carousel-section {
+  background: #f5f5f5;
 }
 .carousel-title {
   font-size: 2.4rem;
