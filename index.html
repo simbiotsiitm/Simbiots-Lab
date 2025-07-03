@@ -10,10 +10,10 @@
 
 </head>
 <body>
-  <div id="splash-screen">
-    <img src="images/logo_round_gold-removebg-preview.png" alt="Simbiots" class="splash-logo" />
-    <h1 class="splash-text">SIMBIOTS LAB</h1>
-  </div>  
+  <div id="splash-screen" style="display: flex;">
+  <img src="images/logo_round_gold-removebg-preview.png" alt="Simbiots" class="splash-logo" />
+  <h1 class="splash-text">SIMBIOTS LAB</h1>
+</div> 
   <header class="navbar">
     <div class="navbar-left" onclick="toggleLeftSection()">
       <div class="toggle-container">
@@ -22,10 +22,14 @@
           <span class="prof-name">Dr Prasad Patnaik B S V</span>
         </div>
         <div class="toggle-block iitm-block">
-          <img src="images/iitmlogo.png" alt="IIT Madras Logo" class="iitlogo" />
+          <a href="https://www.iitm.ac.in/https://apm.iitm.ac.in/home" target="_blank" rel="noopener">
+            <img src="images/iitmlogo.png" alt="IIT Madras Logo" class="iitlogo" />
+          </a>
           <div class="iit-text">
+            <a href="https://apm.iitm.ac.in/home" target="_blank" rel="noopener">
             <p class="iit-heading">INDIAN INSTITUTE OF TECHNOLOGY MADRAS</p>
             <p class="dept-name">Department of Applied Mechanics & BioMedical</p>
+            </a>
           </div>
         </div>
       </div>
@@ -47,8 +51,8 @@
       </div>
       <a href="publications.html">Publications</a>
       <a href="gallery.html">Gallery</a>
-      <a href="#">Apply Now</a>
-      <a href="#">Contact Us</a>
+      <a href="#apply-section">Apply Now</a>
+      <a href="#contact-section">Contact Us</a>
     </nav>
     <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
       <div class="switch-track">
@@ -56,9 +60,8 @@
       </div>
     </div>
   </header>
-
   <section class="hero-video-section">
-  <video src="videos/flowcut.mp4" autoplay loop muted playsinline></video>
+  <video id="hero-video" src="videos/home_light.mp4" autoplay loop muted playsinline></video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-morph-text">
@@ -66,6 +69,11 @@
       <span>Everything Flows</span>
     </h1>
   </div>
+</section>
+  <section class="lab-abbr-section">
+  <h2 class="lab-abbr-text">
+    <span>SIM</span>ulations in <span>BIO</span> fluids and <span>T</span>hermal <span>S</span>ciences
+  </h2>
 </section>
 <section class="carousel-section">
   <div class="carousel-container">
@@ -76,7 +84,121 @@
     <button class="carousel-btn" id="carousel-next"><i class="fas fa-chevron-right"></i></button>
   </div>
 </section>
-
+<section class="lab-quote-section">
+  <blockquote class="lab-quote">
+    “Nobody ever figures out what life is all about, and it doesn't matter. Explore the world. Nearly everything is really interesting if you go into it deeply enough.”
+    <span class="lab-quote-author">― Richard P. Feynman</span>
+  </blockquote>
+</section>
+<section class="lab-facilities-section">
+  <h2 class="lab-facilities-title">Our Computational Resources</h2>
+  <div class="lab-facilities-carousel">
+    <div class="facility-slide"><img src="images/home/labpic-2.jpeg" alt="Lab pic 1"></div>
+    <div class="facility-slide"><img src="images/home/labpic-3.jpeg" alt="Lab pic 2"></div>
+    <div class="facility-slide"><img src="images/home/labpic-1.jpeg" alt="Lab pic 3"></div>
+    <div class="facility-slide"><img src="images/home/labpic-4.jpeg" alt="Lab pic 4"></div>
+  </div>
+</section>
+<section id="apply-section" class="apply-section">
+  <h2 class="apply-title">Join SIMBIOTS Lab</h2>
+  <div class="apply-cards">
+    <div class="apply-card">
+      <div class="apply-card-header apply-phd">
+        <i class="fas fa-user-graduate"></i>
+        <span>PhD/MS by Research</span>
+      </div>
+      <div class="apply-card-body">
+        <p>
+          Apply for PhD/MS programmes in Applied Mechanics and Bio Medical Department and join the group as an IITM scholar.
+        </p>
+        <a href="https://research.iitm.ac.in/" target="_blank" class="apply-btn apply-btn-red">Apply Now</a>
+      </div>
+    </div>
+    <div class="apply-card">
+      <div class="apply-card-header apply-project">
+        <i class="fas fa-laptop-code"></i>
+        <span>Project Vacancies</span>
+      </div>
+      <div class="apply-card-body">
+        <p>
+          Project Assistant/Research Associate/Project Scientist can directly join the group if vacancies exist. Contact us for more info.
+        </p>
+        <a href="mailto:yourlab@email.com" class="apply-btn apply-btn-yellow">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="project-vacancy-note">
+  <strong>Note:</strong> Project vacancies in a collaborative study between the Applied Mechanics and BioMedical Department of IIT Madras and collaborators. Duration, salary, and responsibilities depend on available positions.<br>
+  <strong>Work may include:</strong> Data acquisition, biomedical image processing, computational fluid dynamics simulations, HPC (parallel computing), scientific data analysis, visualization, and mathematical modeling.<br>
+  <strong>Desired qualifications:</strong> Doctoral or master's degree. Experience in code parallelization, image processing, fluid dynamics (turbulent flows), big data, machine learning, and AI preferred.
+</div>
+</section>
+<section class="lab-stats-section">
+  <h2 class="lab-stats-title">A Few Facts About Our Lab</h2>
+  <div class="lab-stats-flex">
+    <div class="lab-stats-grid">
+      <div class="lab-stat-card" onclick="location.href='colloborators.html'">
+        <div class="stat-number" data-target="6">1</div>
+        <div class="stat-label">Collaborations</div>
+      </div>
+      <div class="lab-stat-card" onclick="location.href='publications.html'">
+        <div class="stat-number" data-target="99">1</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="lab-stat-card" onclick="location.href='team.html'">
+        <div class="stat-number" data-target="43">1</div>
+        <div class="stat-label">Scholars</div>
+      </div>
+      <div class="lab-stat-card" style="cursor:default;">
+        <div class="stat-number" data-target="13">1</div>
+        <div class="stat-label">Sponsored Projects</div>
+      </div>
+    </div>
+    <div class="lab-stats-video">
+      <iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/JfbuSTXGPik"
+  title="Professor Interview"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  style="border-radius:1.2rem; max-width:100%; aspect-ratio:16/9; background:#000;"
+></iframe>
+    </div>
+  </div>
+</section>
+<section id="contact-section" class="contact-section">
+  <div class="contact-map-container">
+    <div class="map-zoom-anim">
+      <iframe
+        id="lab-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6977008262193!2d80.22860229999999!3d12.9911768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52677e466f5bef%3A0x2f9d5790b4581f37!2sFluid%20Mechanics%2C%20Alumni%20Ave%2C%20Indian%20Institute%20Of%20Technology%2C%20Chennai%2C%20Tamil%20Nadu%20600036!5e0!3m2!1sen!2sin!4v1675679255367!5m2!1sen!2sin"
+        width="100%" height="100%" style="border:0; border-radius:1.2rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+  <div class="contact-details">
+  <h2 class="contact-title"><i class="fas fa-address-book"></i> Contact Us</h2>
+  <div class="contact-info">
+    <div class="contact-row">
+      <span class="contact-label"><i class="fas fa-phone-alt"></i> Phone:</span>
+      <a href="tel:04422574068" class="contact-link">044–2257–4068</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label"><i class="fas fa-envelope"></i> Email:</span>
+      <a href="mailto:bsvp@iitm.ac.in" class="contact-link">bsvp@iitm.ac.in</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label"><i class="fas fa-map-marker-alt"></i> Location:</span>
+      <span class="contact-link">Fluid Mechanics Laboratory,<br>IIT Madras, Chennai – 600036.</span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label"><i class="fas fa-globe"></i> Website:</span>
+      <a href="https://apm.iitm.ac.in/prasad" target="_blank" class="contact-link">apm.iitm.ac.in/prasad</a>
+    </div>
+  </div>
+</div>
+</section>
   <footer class="footer">
     © 2015 Department of Applied Mechanics and Biomedical Engineering, IIT Madras. All rights reserved.
   </footer>
