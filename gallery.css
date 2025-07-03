@@ -133,8 +133,6 @@ keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opaci
   color: #fff;
   transform: scale(1.08);
 }
-
-/* Masonry Gallery */
 .masonry-gallery {
   column-count: 3;
   column-gap: 18px;
@@ -145,57 +143,31 @@ keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opaci
 @media (max-width: 900px) { .masonry-gallery { column-count: 2; } }
 @media (max-width: 600px) { .masonry-gallery { column-count: 1; } }
 .gallery-item {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 18px;
   position: relative;
-  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 2px 12px #1fa2ff22;
-  background: #fff;
+  border-radius: 1rem;
   transition: box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 2px 12px rgba(33,147,176,0.10);
 }
-.gallery-item:hover {
-  box-shadow: 0 8px 32px #ffd70055, 0 2px 12px #1fa2ff33;
-  transform: translateY(-6px) scale(1.03);
-  z-index: 2;
-}
+
 .gallery-item img {
-  width: 100%;
   display: block;
-  border-radius: 18px;
-  transition: filter 0.3s;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+  border-radius: 1rem;
 }
-.gallery-item .gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, #1fa2ffcc 0%, #ffd700cc 100%);
-  color: #fff;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 18px;
-  transition: opacity 0.3s;
-  border-radius: 18px;
+
+.gallery-item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(183,33,255,0.25), 0 2px 8px 0 rgba(33,147,176,0.18);
 }
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
+
+.gallery-item:hover img {
+  transform: scale(1.07);
 }
-.gallery-overlay-title {
-  font-size: 1.1em;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.gallery-overlay-date {
-  font-size: 0.98em;
-  margin-bottom: 6px;
-}
-.gallery-overlay-links a {
-  color: #fff;
-  margin-right: 12px;
-  font-size: 1.2em;
-  text-decoration: underline;
+.gallery-overlay {
+  display: none !important;
 }
 .gallery-modal {
   display: none;
