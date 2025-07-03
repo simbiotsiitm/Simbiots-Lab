@@ -97,12 +97,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  yearDropdownBtn.onclick = function() {
-    yearDropdown.style.display = yearDropdown.style.display === 'block' ? 'none' : 'block';
-  };
-  window.onclick = function(e) {
-    if (!e.target.matches('.pub-dropdown-btn')) {
-      yearDropdown.style.display = 'none';
-    }
+  yearDropdownBtn.addEventListener('click', function(e) {
+  e.stopPropagation(); // So it doesn't close immediately
+  yearDropdown.style.display = (yearDropdown.style.display === 'block') ? 'none' : 'block';
+});
+
+window.addEventListener('click', function(e) {
+  if (!yearDropdown.contains(e.target) && !yearDropdownBtn.contains(e.target)) {
+    yearDropdown.style.display = 'none';
+  }
+});
   };
 });
