@@ -1,3 +1,4 @@
+window.scrollTo(0, 0);
 window.addEventListener('DOMContentLoaded', function() {
   const splash = document.getElementById('splash-screen');
   if (splash) splash.style.display = '';
