@@ -91,6 +91,7 @@ body.dark-theme .pub-hero-quote {
 .pub-dropdown {
   position: relative;
   display: inline-block;
+  width: 180px;
 }
 .pub-dropdown-btn {
   background: #fff;
@@ -118,7 +119,11 @@ body.dark-theme .pub-dropdown-btn {
   border-radius: 12px;
   z-index: 10;
   margin-top: 8px;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 220px;
+  width: 100%;
+  left: 0;
+  top: 100%;
 }
 body.dark-theme .pub-dropdown-content {
   background: #232526;
