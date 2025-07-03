@@ -167,8 +167,13 @@ keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opaci
 }
 
 .gallery-item:hover {
-  transform: scale(1.04);
-  box-shadow: 0 8px 32px 0 rgba(183,33,255,0.25), 0 2px 8px 0 rgba(33,147,176,0.18);
+  transform: translateY(-8px) scale(1.06);
+  z-index: 2;
+  box-shadow:
+    0 0 0 6px #fff,
+    0 12px 48px 0 #ffd700ee,
+    0 4px 32px 0 #1fa2ffee,
+    0 0px 0px 16px #b721ffff;
 }
 
 .gallery-item:hover img {
