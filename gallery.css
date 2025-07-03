@@ -150,29 +150,29 @@ keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opaci
   border-radius: 18px;
   overflow: hidden;
   background: #fff;
+  /* Soft, modern glow */
   box-shadow:
-    0 0 32px 8px #ffd700cc,   
-    0 0 48px 16px #1fa2ffcc,  
-    0 0 64px 24px #b721ff99; 
-  transition: box-shadow 0.3s, transform 0.3s;
+    0 0 32px 0 #ffd70055,
+    0 0 64px 0 #1fa2ff33;
+  transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
 }
 
 .gallery-item:hover {
-  transform: scale(1.06);
+  transform: scale(1.04);
   z-index: 2;
+  /* Brighter, more colorful glow on hover */
   box-shadow:
-    0 0 48px 16px #ffd700ff,
-    0 0 72px 32px #1fa2ffff,
-    0 0 96px 48px #b721ffff;
+    0 0 48px 8px #ffd700aa,
+    0 0 96px 16px #1fa2ffaa;
 }
 
 .gallery-item img {
-  display: block;
   width: 100%;
-  height: auto;
-  transition: transform 0.3s;
-  border-radius: 1rem;
+  display: block;
+  border-radius: 18px;
+  transition: filter 0.3s, transform 0.3s;
 }
+
 .gallery-item:hover img {
   transform: scale(1.07);
 }
