@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
   fetch(SHEET_URL)
     .then(res => res.text())
     .then(text => {
+      console.log('Fetched text:', text);
       const json = JSON.parse(text.substr(47).slice(0, -2));
       const cols = json.table.cols.map(col => col.label);
       const data = json.table.rows.map(row => {
