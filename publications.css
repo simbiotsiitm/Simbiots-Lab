@@ -1,3 +1,7 @@
+#main-content.show {
+  opacity: 1;
+  display: block;
+}
 body {
   font-family: 'Montserrat', 'Bree Serif', serif;
   margin: 0;
