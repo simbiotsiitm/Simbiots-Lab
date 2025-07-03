@@ -199,9 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroVideo = document.getElementById('hero-video');
   function setHeroVideo() {
     if (document.body.classList.contains('light-theme')) {
-      heroVideo.src = 'videos/home_light.mp4';
+      heroVideo.src = 'images/home/home_light.mp4';
     } else {
-      heroVideo.src = 'videos/flowcut.mp4';
+      heroVideo.src = 'images/home/flowcut.mp4';
     }
     heroVideo.load();
     heroVideo.play();
