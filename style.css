@@ -1,13 +1,3 @@
-#main-content {
-  opacity: 0;
-  transition: opacity 0.8s ease-in;
-  display: none;
-}
-#main-content.show {
-  opacity: 1;
-  display: block;
-}
-
 html, body {
   margin: 0;
   padding: 0;
