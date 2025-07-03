@@ -22,6 +22,7 @@ if (themeSwitch) {
 document.addEventListener("DOMContentLoaded", function() {
   const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1FPgUPb-V7qzhAuO4z2bsO0zcnlp3gzkkQKW2XDqjvXQ/gviz/tq?tqx=out:json';
   const pubSection = document.getElementById('pub-list-section');
+  pubSection.innerHTML = '<div class="pub-loading">Loading publications...</div>';
   const yearDropdown = document.getElementById('yearDropdown');
   const yearDropdownBtn = document.getElementById('yearDropdownBtn');
   const selectedYearEl = document.getElementById('selectedYear');
