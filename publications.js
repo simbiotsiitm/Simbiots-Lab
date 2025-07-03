@@ -78,18 +78,18 @@ document.addEventListener("DOMContentLoaded", function() {
       if (!pubsByYear[year]) return;
       const yearDiv = document.createElement('div');
       yearDiv.className = 'pub-year-section';
-      yearDiv.innerHTML = <div class="pub-year-heading">${year}</div>;
+      yearDiv.innerHTML = `<div class="pub-year-heading">${year}</div>`;
       const itemsDiv = document.createElement('div');
       itemsDiv.className = 'pub-items';
       pubsByYear[year].forEach(pub => {
         const item = document.createElement('div');
         item.className = 'pub-item';
         item.onclick = () => window.open(pub.Link, '_blank');
-        item.innerHTML = 
+        item.innerHTML = `
           <img class="pub-img" src="${pub.Image || 'images/default_pub.jpg'}" alt="Publication Image" />
           <div class="pub-title">${pub.Title}</div>
           <div class="pub-authors">${pub.Authors}</div>
-        ;
+        `;
         itemsDiv.appendChild(item);
       });
       yearDiv.appendChild(itemsDiv);
