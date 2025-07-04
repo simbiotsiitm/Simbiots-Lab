@@ -198,8 +198,9 @@ if (carouselTrack && prevBtn && nextBtn) {
   });
 }
 
-  const heroVideo = document.getElementById('hero-video');
-  function setHeroVideo() {
+const heroVideo = document.getElementById('hero-video');
+function setHeroVideo() {
+  if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '') {
     if (document.body.classList.contains('light-theme')) {
       heroVideo.src = 'videos/home_light.mp4';
     } else {
@@ -208,13 +209,14 @@ if (carouselTrack && prevBtn && nextBtn) {
     heroVideo.load();
     heroVideo.play();
   }
-  if (heroVideo) setHeroVideo();
-  const themeSwitch = document.getElementById('theme-switch');
-  if (themeSwitch) {
-    themeSwitch.addEventListener('click', function() {
-      setTimeout(setHeroVideo, 300);
-    });
-  }
+}
+if (heroVideo) setHeroVideo();
+const themeSwitch = document.getElementById('theme-switch');
+if (themeSwitch) {
+  themeSwitch.addEventListener('click', function() {
+    setTimeout(setHeroVideo, 300);
+  });
+}
     const facilitiesCarousel = document.querySelector('.lab-facilities-carousel');
   if (facilitiesCarousel) {
     const slides = Array.from(facilitiesCarousel.children);
