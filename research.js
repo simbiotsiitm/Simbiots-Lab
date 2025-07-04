@@ -1,189 +1,220 @@
 const researchData = {
   cardio: {
-    bgImg: "images/research-bg.jpg",
-    bgVideo: "videos/ha.mp4",
-    gif: "images/heart.gif",
+    bgImg: "images/research/heart.gif",
+    bgVideo: "images/research/heart.gif",
     subtitle: "Explore our impactful research in Cardio Vascular Science",
-    title: "Cardio Vascular Research",
     cards: [
-      { title: "Hemodynamics in the Heart", text: "Advanced simulations of blood flow and wall mechanics for improved diagnosis and treatment of cardiovascular diseases.",img:"images/research2.png" },
-      { title: "Patient-Specific Modeling", text: "Custom models for individual patients to predict disease progression and optimize therapies.",img:"images/research2.png" },
-      { title: "FSI Techniques", text: "Fluid-structure interaction methods to analyze hemodynamics in arteries." ,img:"images/research2.png"},
-      { title: "Vascular Device Testing", text: "Computational and experimental studies for stents and grafts.",img:"images/research2.png" }
-    ]
+      {
+        title: "Structural Heart Defects",
+        text: "We study congenital and acquired heart defects using simulations and imaging to support clinical decision-making and improve surgical outcomes.",
+        mediaType: "gif",
+        mediaSrc: "images/heart.gif",
+      },
+      {
+        title: "Percutaneous Ventricular Assist Devices (PVADs)",
+        text: "Our research develops and optimizes PVADs to provide mechanical circulatory support for patients with severe heart failure, aiming for improved function and biocompatibility.",
+        mediaType: "img",
+        mediaSrc: "images/research2.png",
+      },
+      {
+        title: "Extracorporeal Membrane Oxygenation (ECMO)",
+        text: "ECMO offers temporary support for heart or lung failure. We work on advancing membrane oxygenator technology, improving gas exchange, minimizing complications, and enabling safer long-term use.",
+        mediaType: "video",
+        mediaSrc: "videos/fsi.mp4",
+      },
+      {
+        title: "Vascular Abnormalities",
+        text: "We investigate abnormal vessel structures and flow disruptions that contribute to cardiovascular diseases, enhancing diagnostic tools and treatment planning through advanced modeling.",
+        mediaType: "img",
+        mediaSrc: "images/research4.png",
+      },
+    ],
   },
   cerebro: {
-    bgImg: "images/cerebro-hero-bg.jpg",
-    bgVideo: "videos/cerebro.mp4",
-    gif: "images/cerebro.gif",
+    bgImg: "images/research/brain.gif",
+    bgVideo: "images/research/brain.gif",
     subtitle: "Explore our impactful research in Cerebro Vascular Science",
-    title: "Cerebro Vascular Research",
     cards: [
-      { title: "Aneurysm Modeling", text: "Patient-specific models for cerebral aneurysms and rupture risk assessment.",img:"images/research2.png" },
-      { title: "Histopathology-Based Reconstructions", text: "Detailed vessel wall reconstructions for accurate FSI simulations." ,img:"images/research2.png"},
-      { title: "Brain Flow Dynamics", text: "Analysis of complex flow patterns in the brain's arteries." ,img:"images/research2.png"}
-    ]
+      {
+        title: "Aneurysms",
+        text: "We model and analyze cerebral aneurysms to assess rupture risk and assist in optimizing interventions like coiling or surgical clipping.",
+        mediaType: "img",
+        mediaSrc: "images/cerebro1.png",
+      },
+      {
+        title: "Moyamoya Disease (MMA)",
+        text: "Our work focuses on altered blood flow patterns in Moyamoya disease, using imaging and computational tools to support early diagnosis and revascularization strategies.",
+        mediaType: "gif",
+        mediaSrc: "images/vesselwall.gif",
+      },
+      {
+        title: "Arteriovenous Malformations (AVMs)",
+        text: "We study the complex structure and hemodynamics of AVMs to evaluate hemorrhagic risk and personalize therapeutic approaches.",
+        mediaType: "video",
+        mediaSrc: "videos/brainflow.mp4",
+      },
+      {
+        title: "Arterial Dissections (AD)",
+        text: "We simulate the initiation and evolution of arterial dissections to understand their biomechanical triggers and improve patient-specific treatment planning.",
+        mediaType: "video",
+        mediaSrc: "videos/brainflow.mp4",
+      },
+    ],
+  },
+  heat: {
+    bgImg: "images/heat-bg.jpg",
+    bgVideo: "videos/heat-transfer.mp4",
+    subtitle: "Explore our impactful research in Thermal Sciences",
+    cards: [
+      {
+        title: "Thermal Conductivity",
+        text: "Advanced simulations of thermal flow in biomedical devices.",
+        mediaType: "img",
+        mediaSrc: "images/heat1.png",
+      },
+      {
+        title: "Convection Modeling",
+        text: "Studying heat transfer in complex geometries.",
+        mediaType: "gif",
+        mediaSrc: "images/convection.gif",
+      },
+      {
+        title: "Cooling Mechanisms",
+        text: "Optimization of cooling strategies in biomedical applications.",
+        mediaType: "video",
+        mediaSrc: "videos/cooling.mp4",
+      },
+    ],
   },
 };
 
-const CARDS_PER_PAGE = 3;
-
 document.addEventListener("DOMContentLoaded", () => {
-  const btns = document.querySelectorAll('.toggle-btn');
-  const heroBgImg = document.getElementById('hero-bg-img');
-  const heroBgVideo = document.getElementById('hero-bg-video');
-  const heroBgVideoSource = document.getElementById('hero-bg-video-source');
-  const heroGifCol = document.querySelector('.hero-gif-col');
-  const heroSubtitle = document.getElementById('hero-subtitle');
-  const heroTitle = document.getElementById('hero-title');
-  const heroHeadingCol = document.getElementById('hero-heading-col');
-  const contentList = document.getElementById('research-content-list');
-  const loadMoreBtn = document.getElementById('load-more-btn');
-  const backBtn = document.getElementById('back-btn');
-  let currentSection = null;
-  let currentPage = 1;
+  const splash = document.getElementById("splash-screen");
+  const mainContent = document.getElementById("main-content");
+  const heroHeading = document.getElementById("hero-heading");
+  const heroMediaDiv = document.getElementById("hero-media");
+  const heroImage = document.getElementById("hero-image");
+  const heroVideo = document.getElementById("hero-video");
+  const heroVideoSource = heroVideo.querySelector("source");
+  const heroSubtitle = document.getElementById("hero-subtitle");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const cardList = document.getElementById("card-list");
+  const backBtn = document.getElementById("back-btn");
 
-  function renderDefault() {
-    const bulbImg = document.querySelector('.research-bulb-img');
-    if (bulbImg) bulbImg.style.display = '';
-    const heroResearchText = heroGifCol.querySelector('.hero-research-text');
-    if (heroResearchText) heroResearchText.textContent = "OUR RESEARCH";
-    const heroGifImg = heroGifCol.querySelector('.hero-gif-img');
-    if (heroGifImg) heroGifImg.style.display = "none";
-    heroSubtitle.textContent = "Explore our impactful research";
-    if (heroBgImg) {
-      heroBgImg.src = "images/research-bg.jpg";
-      heroBgImg.style.opacity = 1;
-      heroBgImg.style.display = "block";
-    }
-    if (heroBgVideo) {
-      heroBgVideo.style.opacity = 0;
-      heroBgVideo.style.display = "none";
-      heroBgVideo.pause();
-    }
-    heroGifCol.classList.remove('hide');
-    heroSubtitle.classList.remove('hide');
-    heroHeadingCol.classList.add('show');
-    if (heroTitle) heroTitle.textContent = "OUR RESEARCH";
-    btns.forEach(b => b.classList.remove('active'));
-    let allCards = [];
-    Object.values(researchData).forEach(sec => allCards = allCards.concat(sec.cards));
-    contentList.innerHTML = "";
-    allCards.slice(0, CARDS_PER_PAGE).forEach(card => {
-      contentList.innerHTML += `
-  <div class="research-card-container">
-    <div class="research-card-img">
-      <img src="${card.img}" alt="${card.title}" />
-    </div>
-    <div class="research-card">
-      <h3>${card.title}</h3>
-      <p>${card.text}</p>
-    </div>
-  </div>
-`;
-    });
-    if (CARDS_PER_PAGE < allCards.length) {
-      loadMoreBtn.style.display = "block";
-    } else {
-      loadMoreBtn.style.display = "none";
-    }
-    backBtn.style.display = "none";
-    currentSection = null;
-    currentPage = 1;
+  let currentFilter = "all";
+  setTimeout(() => {
+    splash.style.opacity = 0;
+    setTimeout(() => {
+      splash.style.display = "none";
+      mainContent.style.display = "block";
+      renderCards("all");
+    }, 600);
+  }, 2200);
+
+  function clearActiveButtons() {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
   }
 
-  function renderSection(section, page = 1) {
-    const bulbImg = document.querySelector('.research-bulb-img');
-    if (bulbImg) bulbImg.style.display = 'none';
-    const heroGifImg = heroGifCol.querySelector('.hero-gif-img');
-    if (heroGifImg) {
-      heroGifImg.src = researchData[section].gif;
-      heroGifImg.style.display = "block";
+  function setActiveButton(filter) {
+    clearActiveButtons();
+    const btn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+    if (btn) btn.classList.add("active");
+  }
+
+  function showBackButton(show) {
+    backBtn.style.display = show ? "inline-block" : "none";
+  }
+
+  function updateHeroMedia(filter) {
+    if (filter === "all") {
+      heroImage.style.display = "block";
+      heroImage.src = "images/research/research.png";
+      heroVideo.style.display = "none";
+      heroVideo.pause();
+      heroVideoSource.src = "";
+      heroSubtitle.textContent = "Explore our impactful research";
+      heroHeading.textContent = "OUR RESEARCH";
+    } else if (filter === "cardio") {
+      heroImage.style.display = "block";
+      heroImage.src = researchData.cardio.bgImg;
+      heroVideo.style.display = "none";
+      heroVideo.pause();
+      heroVideoSource.src = "";
+      heroSubtitle.textContent = researchData.cardio.subtitle;
+      heroHeading.textContent = "Cardio Vascular Research";
+    } else if (filter === "cerebro") {
+      heroImage.style.display = "block";
+      heroImage.src = researchData.cerebro.bgImg;
+      heroVideo.style.display = "none";
+      heroVideo.pause();
+      heroVideoSource.src = "";
+      heroSubtitle.textContent = researchData.cerebro.subtitle;
+      heroHeading.textContent = "Cerebro Vascular Research";
+    } else if (filter === "heat") {
+      heroImage.style.display = "none";
+      heroVideoSource.src = researchData.heat.bgVideo;
+      heroVideo.load();
+      heroVideo.style.display = "block";
+      heroVideo.play();
+      heroSubtitle.textContent = researchData.heat.subtitle;
+      heroHeading.textContent = "Heat Transfer Research";
     }
-    const heroResearchText = heroGifCol.querySelector('.hero-research-text');
-    if (heroResearchText) {
-      heroResearchText.textContent = section === 'cardio'
-        ? "CARDIO VASCULAR RESEARCH"
-        : "CEREBRO VASCULAR RESEARCH";
+  }
+
+  function createCard(card) {
+    let mediaHtml = "";
+    if (card.mediaType === "img") {
+      mediaHtml = `<img src="${card.mediaSrc}" alt="${card.title}" />`;
+    } else if (card.mediaType === "video") {
+      mediaHtml = `<video muted loop playsinline preload="metadata" src="${card.mediaSrc}"></video>`;
+    } else if (card.mediaType === "gif") {
+      mediaHtml = `<img src="${card.mediaSrc}" alt="${card.title}" />`;
     }
-    heroSubtitle.textContent = researchData[section].subtitle;
-    const data = researchData[section];
-    if (heroBgImg) heroBgImg.style.display = "none";
-    if (heroBgVideo) {
-      heroBgVideo.style.display = "none";
-      heroBgVideo.pause();
-      if (heroBgVideoSource) heroBgVideoSource.src = "";
-    }
-    heroGifCol.classList.remove('hide');
-    heroSubtitle.classList.remove('hide');
-    heroHeadingCol.classList.remove('show');
-    if (heroTitle) heroTitle.textContent = "";
-    const start = 0;
-    const end = Math.min(page * CARDS_PER_PAGE, data.cards.length);
-    contentList.innerHTML = "";
-    for (let i = 0; i < end; i++) {
-      const card = data.cards[i];
-      contentList.innerHTML += `
-        <div class="research-card-container">
-          <div class="research-card-img">
-            <img src="${card.img}" alt="${card.title}" />
-          </div>
-          <div class="research-card">
-            <h3>${card.title}</h3>
-            <p>${card.text}</p>
-          </div>
+
+    return `
+      <article class="card">
+        <div class="card-media">${mediaHtml}</div>
+        <div class="card-content">
+          <h3>${card.title}</h3>
+          <p>${card.text}</p>
         </div>
-      `;
-    }
-    if (end < data.cards.length) {
-      loadMoreBtn.style.display = "block";
-    } else {
-      loadMoreBtn.style.display = "none";
-    }
-    backBtn.style.display = "inline-block";
-    currentSection = section;
-    currentPage = page;
+      </article>
+    `;
   }
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const section = btn.getAttribute('data-section');
-      renderSection(section, 1);
-    });
-  });
+  function renderCards(filter) {
+    currentFilter = filter;
+    setActiveButton(filter);
+    showBackButton(filter !== "all");
 
-  loadMoreBtn.addEventListener('click', () => {
-    if (!currentSection) {
+    updateHeroMedia(filter);
+
+    cardList.innerHTML = "";
+
+    if (filter === "all") {
       let allCards = [];
-      Object.values(researchData).forEach(sec => allCards = allCards.concat(sec.cards));
-      const start = currentPage * CARDS_PER_PAGE;
-      const end = Math.min((currentPage + 1) * CARDS_PER_PAGE, allCards.length);
-      for (let i = start; i < end; i++) {
-        const card = allCards[i];
-        contentList.innerHTML += `
-          <div class="research-card-container">
-            <div class="research-card-img">
-              <img src="${card.img}" alt="${card.title}" />
-            </div>
-            <div class="research-card">
-              <h3>${card.title}</h3>
-              <p>${card.text}</p>
-            </div>
-          </div>
-        `;
-      }
-      currentPage++;
-      if (end >= allCards.length) loadMoreBtn.style.display = "none";
+      Object.values(researchData).forEach((sec) => {
+        allCards = allCards.concat(sec.cards);
+      });
+      allCards.forEach((card) => {
+        cardList.innerHTML += createCard(card);
+      });
     } else {
-      renderSection(currentSection, currentPage + 1);
+      let cards = researchData[filter]?.cards || [];
+      cards.forEach((card) => {
+        cardList.innerHTML += createCard(card);
+      });
     }
-  });
+  }
 
-  backBtn.addEventListener('click', () => {
-    renderDefault();
-  });
-
-  renderDefault();
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        let filter = btn.getAttribute("data-filter");
+        if (filter === currentFilter) return;
+        renderCards(filter);
+      });
+    });
+});
+backBtn.addEventListener("click", () => {
+  renderCards("all");
 });
