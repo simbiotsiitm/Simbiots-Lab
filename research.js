@@ -1,7 +1,7 @@
 const researchData = {
   cardio: {
     bgImg: "images/research/heart.gif",
-    bgVideo: "images/research/heart.mp4",
+    bgVideo: "images/research/heart.gif",
     subtitle: "Explore our impactful research in Cardio Vascular Science",
     cards: [
       {
@@ -32,7 +32,7 @@ const researchData = {
   },
   cerebro: {
     bgImg: "images/research/brain.gif",
-    bgVideo: "images/research/brain.mp4",
+    bgVideo: "images/research/brain.gif",
     subtitle: "Explore our impactful research in Cerebro Vascular Science",
     cards: [
       {
