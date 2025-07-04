@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const isIntern = (member.designation && member.designation.trim().toLowerCase().includes('intern')) || member.intern_year;
         const cardImgHtml = `
           <div class="team-card-img-wrap">
-            <img src="${member.image_path}" alt="${member.name}" class="team-card-img${isIntern ? ' intern-img' : ''}" onclick="maximizeImage('${member.image_path}', '${member.name}')"/>
+            <img src="${member.image_path}" alt="${member.name}" class="team-card-img" onclick="maximizeImage('${member.image_path}', '${member.name}')"/>
           </div>
         `;
         if (isIntern) {
