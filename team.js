@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
   const SHEET_URL = `https://docs.google.com/spreadsheets/d/1xXRIh7eshx-9yJzoougoIpGG6gSY6hE5Pq9BuBqkVaU/gviz/tq?tqx=out:json&sheet=Sheet1`;
   const cardsContainer = document.getElementById('team-cards');
   const btns = document.querySelectorAll('.team-btn');
@@ -138,8 +138,8 @@ filtered.forEach(member => {
       `;
     }
   }
-});
-/*document.addEventListener("DOMContentLoaded", function() {
+});*/
+document.addEventListener("DOMContentLoaded", function() {
   const SHEET_URL = `https://docs.google.com/spreadsheets/d/1xXRIh7eshx-9yJzoougoIpGG6gSY6hE5Pq9BuBqkVaU/gviz/tq?tqx=out:json&sheet=Sheet1`;
   const cardsContainer = document.getElementById('team-cards');
   const btns = document.querySelectorAll('.team-btn');
@@ -209,5 +209,5 @@ filtered.forEach(member => {
       renderCards(this.dataset.filter);
     });
   });
-});*/
+});
 
