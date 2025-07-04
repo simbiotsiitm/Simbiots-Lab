@@ -1,3 +1,30 @@
+function maximizeImage(src, alt) {
+  let modal = document.getElementById('img-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'img-modal';
+    modal.style.position = 'fixed';
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.background = 'rgba(0,0,0,0.8)';
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.style.zIndex = 9999;
+    modal.innerHTML = `<img id="modal-img" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 0 32px #000;" alt="">
+      <span id="modal-close" style="position:absolute;top:32px;right:48px;font-size:2.5rem;color:#fff;cursor:pointer;">&times;</span>`;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal || e.target.id === 'modal-close') modal.style.display = 'none';
+    });
+  }
+  modal.querySelector('#modal-img').src = src;
+  modal.querySelector('#modal-img').alt = alt;
+  modal.style.display = 'flex';
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   const SHEET_URL = `https://docs.google.com/spreadsheets/d/1xXRIh7eshx-9yJzoougoIpGG6gSY6hE5Pq9BuBqkVaU/gviz/tq?tqx=out:json&sheet=Sheet1`;
   const cardsContainer = document.getElementById('team-cards');
