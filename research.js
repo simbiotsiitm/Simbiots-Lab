@@ -57,7 +57,7 @@ const researchData = {
         title: "Arterial Dissections (AD)",
         text: "We simulate the initiation and evolution of arterial dissections to understand their biomechanical triggers and improve patient-specific treatment planning.",
         mediaType: "img",
-        mediaSrc: "images/research/avm.jpeg",
+        mediaSrc: "images/research/ad.jpeg",
       },
     ],
   },
