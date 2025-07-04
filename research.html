@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research Page</title>
+  <title>Our Research</title>
   <link rel="stylesheet" href="research.css" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="splash-screen">
@@ -45,8 +45,8 @@
       </div>
       <a href="publications.html">Publications</a>
       <a href="gallery.html">Gallery</a>
-      <a href="#">Apply Now</a>
-      <a href="#">Contact Us</a>
+      <a href="index.html#apply-section">Apply Now</a>
+      <a href="index.html#contact-section">Contact Us</a>
     </nav>
     <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
       <div class="switch-track">
@@ -55,38 +55,34 @@
     </div>
   </header>
 
-  
-  <main>
+    <main class="main-content" id="main-content">
     <section class="hero-section">
-      <div class="hero-bg" id="hero-bg">
-        <img src="images/research-bg.jpg" alt="Research Background" class="hero-bg-img" id="hero-bg-img">
-        <video class="hero-bg-video" id="hero-bg-video" autoplay muted loop playsinline style="display:none;">
-          <source src="" id="hero-bg-video-source" type="video/mp4">
-        </video>
+      <div class="hero-row">
+        <h1 class="hero-research-text" id="hero-heading">OUR RESEARCH</h1>
+        <div class="hero-media" id="hero-media">
+          <img src="images/research/research.png" alt="Research Image" id="hero-image" />
+          <video autoplay muted loop playsinline id="hero-video" style="display:none;">
+            <source src="" type="video/mp4" />
+          </video>
+        </div>
       </div>
-      <div class="hero-flex">
-      <div class="hero-gif-col hero-research-text-col">
-        <img class="hero-gif-img" src="" alt="Research GIF" style="display:none;" />
-        <span class="hero-research-text">OUR RESEARCH</span>
-      </div>
-      <img src="images/research-bg-bulb.png" alt="Research Bulb" class="research-bulb-img" />
-      <div class="hero-heading-col" id="hero-heading-col" style="display:none;">
-        <h1 class="hero-title" id="hero-title"></h1>
-      </div>
-    </div>
-    <div class="hero-subtitle" id="hero-subtitle">Explore our impactful research</div>
+      <p class="hero-subtitle" id="hero-subtitle">Explore our impactful research</p>
     </section>
-    <div class="research-toggle">
-      <button class="toggle-btn" data-section="cardio">Cardio Vascular</button>
-      <button class="toggle-btn" data-section="cerebro">Cerebro Vascular</button>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="cardio">Cardio Vascular</button>
+      <button class="filter-btn" data-filter="cerebro">Cerebro Vascular</button>
+      <button class="filter-btn" data-filter="heat">Heat Transfer</button>
     </div>
-    <section class="research-content-section">
-      <div class="research-content-list" id="research-content-list">
-        <!-- cards -->
-      </div>
-      <button class="back-btn" id="back-btn" style="display:none;">Back</button>
-      <button class="load-more-btn" id="load-more-btn">Load More</button>
+
+    <section class="card-list" id="card-list">
+      <!-- Cards-->
     </section>
+
+    <div class="back-section" style="text-align:center; margin-top:20px;">
+      <button id="back-btn" class="back-btn" style="display:none;">Back to All Research</button>
+    </div>
   </main>
 
   <footer class="footer">
