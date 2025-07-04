@@ -269,16 +269,3 @@ body.light-theme .team-card-work {
   color: #888;
   margin-top: 4px;
 }
-.intern-card {
-  width: 180px;
-  min-height: 180px;
-  padding-bottom: 16px;
-}
-.intern-card .team-card-img-wrap {
-  height: 80px;
-  min-height: 80px;
-  max-height: 80px;
-}
-.intern-card .team-card-content {
-  padding: 10px 10px 0 10px;
-}
