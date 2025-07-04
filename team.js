@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(res => res.text())
     .then(text => {
       const json = JSON.parse(text.substr(47).slice(0, -2));
-      const cols = ['image_path', 'designation', 'name', 'work_heading'];
+      const cols = ['image_path', 'designation', 'name', 'work_heading','profile_link','intern_year'];
       console.log('Parsed columns:', cols);
       const data = json.table.rows.map(row => {
         const obj = {};
