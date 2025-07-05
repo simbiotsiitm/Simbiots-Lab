@@ -271,7 +271,7 @@ body.light-theme .team-card-work {
   color: #888;
   margin-top: 4px;
 }
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .team-filter-btns {
     gap: 10px;
     justify-content: center;
