@@ -19,8 +19,8 @@ const researchData = {
       {
         title: "Extracorporeal Membrane Oxygenation (ECMO)",
         text: "ECMO offers temporary support for heart or lung failure. We work on advancing membrane oxygenator technology, improving gas exchange, minimizing complications, and enabling safer long-term use.",
-        mediaType: "img",
-        mediaSrc: "images/research/ecmo.jpg",
+        mediaType: "gif",
+        mediaSrc: "images/research/ecmo.gif",
       },
       {
         title: "Vascular Abnormalities",
