@@ -129,9 +129,11 @@ body.light-theme .team-img {
 
 .team-filter-btns {
   display: flex;
+  flex-wrap:wrap;
   gap: 18px;
   justify-content: center;
   margin-bottom: 32px;
+  width: 100%;
 }
 
 .team-btn {
@@ -268,4 +270,17 @@ body.light-theme .team-card-work {
   font-size: 0.95em;
   color: #888;
   margin-top: 4px;
+}
+@media (max-width: 768px) {
+  .team-filter-btns {
+    gap: 10px;
+    justify-content: center;
+  }
+  .team-btn {
+    flex: 1 1 120px;
+    min-width: 120px;
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
 }
