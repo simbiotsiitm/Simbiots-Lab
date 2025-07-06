@@ -73,12 +73,16 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="${member.image_path}" alt="${member.name}" class="team-card-img" onclick="maximizeImage('${member.image_path}', '${member.name}')"/>
           </div>
         `;
+        let nameHtml = member.name;
+        if (member.profile_link) {
+          nameHtml = `<a href="${member.profile_link}" target="_blank" style="color:inherit;text-decoration:underline;">${member.name}</a>`;
+        }
         if (isIntern) {
           cardsContainer.innerHTML += `
             <div class="team-card intern-card">
               ${cardImgHtml}
               <div class="team-card-content">
-                <div class="team-card-name">${member.name}</div>
+                <div class="team-card-name">${nameHtml}</div>
                 <div class="team-card-intern-year">${member.intern_year || ''}</div>
               </div>
             </div>
@@ -87,25 +91,16 @@ document.addEventListener("DOMContentLoaded", function() {
           const cardContent = `
             <div class="team-card-content">
               <div class="team-card-designation">${member.designation}</div>
-              <div class="team-card-name">${member.name}</div>
+              <div class="team-card-name">${nameHtml}</div>
               <div class="team-card-work">${member.work_heading}</div>
             </div>
           `;
-          if (member.profile_link) {
-            cardsContainer.innerHTML += `
-              <a href="${member.profile_link}" class="team-card" target="_blank">
-                ${cardImgHtml}
-                ${cardContent}
-              </a>
-            `;
-          } else {
-            cardsContainer.innerHTML += `
-              <div class="team-card">
-                ${cardImgHtml}
-                ${cardContent}
-              </div>
-            `;
-          }
+          cardsContainer.innerHTML += `
+            <div class="team-card">
+              ${cardImgHtml}
+              ${cardContent}
+            </div>
+          `;
         }
       });
       cardsContainer.style.opacity = 1;
