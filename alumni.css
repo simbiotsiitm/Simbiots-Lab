@@ -253,7 +253,6 @@ body.dark-theme .alumni-card-link:hover {
 .alumni-card-coord-label {
   text-align: center;
   font-weight: 100;
-  margin: 8px 0 4px;
   font-size: 12px;
   transition: color 0.3s ease;
 }
