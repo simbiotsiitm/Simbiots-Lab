@@ -69,20 +69,19 @@ body.dark-theme .hero-image-bg {
   background: radial-gradient(circle at 60% 40%, #222 0%, #ffd700 60%, #333 100%);
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.4);
 }
-
 .hero-image {
   position: absolute;
-  right: 0;
+  right: -100px;  
   bottom: 0;
-  width: 350px;
-  height: 350px;
+  width: 50%;
+  height: 60%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   z-index: 2;
   pointer-events: none;
   margin-top: 60px;
-  margin-right: 20px;
+  margin-right: 0;
 }
 body.dark-theme {
   background: #222;
