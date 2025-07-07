@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
   fetch(SHEET_URL)
     .then(res => res.text())
     .then(text => {
-      console.log('Fetched text:', text);
       const json = JSON.parse(text.substr(47).slice(0, -2));
       const cols = json.table.cols.map(col => col.label);
       const data = json.table.rows.map(row => {
@@ -97,12 +96,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  yearDropdownBtn.onclick = function() {
+  yearDropdownBtn.onclick = function(e) {
+    e.stopPropagation();
     yearDropdown.style.display = yearDropdown.style.display === 'block' ? 'none' : 'block';
   };
-  window.onclick = function(e) {
-    if (!e.target.matches('.pub-dropdown-btn')) {
+
+  document.addEventListener('click', function(e) {
+    if (!yearDropdownBtn.contains(e.target) && !yearDropdown.contains(e.target)) {
       yearDropdown.style.display = 'none';
     }
-  };
+  });
 });
