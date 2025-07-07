@@ -49,6 +49,7 @@ filtered.forEach(member => {
         ${member.co_guide && member.co_guide.trim() !== "" ? `<div class="alumni-card-coguide"><b>Co-guide:</b> ${member.co_guide}</div>` : ''}
       </div>
     </div>
+    <div class="alumni-card-coord-label">Current Known Coordinates</div>
     <div class="alumni-card-coord-row">
       ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
       <span class="alumni-card-coord">${member.current_coordinates || ''}</span>
