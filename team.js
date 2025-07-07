@@ -53,8 +53,13 @@ document.addEventListener("DOMContentLoaded", function() {
       cardsContainer.innerHTML = '';
       let filtered = teamData;
       if (filter !== 'all') {
-        if (filter === 'others') {
-          const othersList = ['mtech', 'intern', 'dual degree', 'others'];
+        if (filter === 'intern') {
+          filtered = teamData.filter(d =>
+            d.designation &&
+            d.designation.trim().toLowerCase().includes('intern')
+          );
+        } else if (filter === 'others') {
+          const othersList = ['mtech', 'dual degree', 'others'];
           filtered = teamData.filter(d =>
             d.designation &&
             othersList.some(val => d.designation.trim().toLowerCase().includes(val))
