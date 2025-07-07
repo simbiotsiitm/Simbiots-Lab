@@ -256,3 +256,9 @@ body.dark-theme .pub-authors {
   .pub-hero-title { font-size: 2.1rem;}
   .pub-year-heading { font-size: 1.3rem;}
 }
+.pub-dropdown-btn {
+  pointer-events: auto;
+}
+.pub-dropdown-btn * {
+  pointer-events: auto;
+}
