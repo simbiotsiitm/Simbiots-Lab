@@ -283,3 +283,9 @@ body.light-theme .team-card-work {
     padding: 10px 0;
   }
 }
+.team-card-college {
+  font-size: 0.95em;
+  color: #888;
+  margin-top: 4px;
+  text-align: center;
+}
