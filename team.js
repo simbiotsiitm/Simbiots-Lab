@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(res => res.text())
     .then(text => {
       const json = JSON.parse(text.substr(47).slice(0, -2));
-      const cols = ['image_path', 'designation', 'name', 'work_heading','profile_link','intern_year'];
+      const cols = ['image_path', 'designation', 'name', 'work_heading','profile_link','intern_year', 'college_name'];
       const data = json.table.rows.map(row => {
         const obj = {};
         row.c.forEach((cell, i) => {
@@ -73,34 +73,40 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="${member.image_path}" alt="${member.name}" class="team-card-img" onclick="maximizeImage('${member.image_path}', '${member.name}')"/>
           </div>
         `;
-        let nameHtml = member.name;
-        if (member.profile_link) {
-          nameHtml = `<a href="${member.profile_link}" target="_blank" style="color:inherit;text-decoration:underline;">${member.name}</a>`;
-        }
         if (isIntern) {
-          cardsContainer.innerHTML += `
-            <div class="team-card intern-card">
-              ${cardImgHtml}
-              <div class="team-card-content">
-                <div class="team-card-name">${nameHtml}</div>
-                <div class="team-card-intern-year">${member.intern_year || ''}</div>
-              </div>
+        cardsContainer.innerHTML += `
+          <div class="team-card intern-card">
+            ${cardImgHtml}
+            <div class="team-card-content">
+              <div class="team-card-name">${member.name}</div>
+              <div class="team-card-intern-year">${member.intern_year || ''}</div>
+              <div class="team-card-college">${member.college_name || ''}</div>
             </div>
-          `;
+          </div>
+        `;
         } else {
           const cardContent = `
             <div class="team-card-content">
               <div class="team-card-designation">${member.designation}</div>
-              <div class="team-card-name">${nameHtml}</div>
+              <div class="team-card-name">${member.name}</div>
               <div class="team-card-work">${member.work_heading}</div>
             </div>
           `;
-          cardsContainer.innerHTML += `
-            <div class="team-card">
-              ${cardImgHtml}
-              ${cardContent}
-            </div>
-          `;
+          if (member.profile_link) {
+            cardsContainer.innerHTML += `
+              <a href="${member.profile_link}" class="team-card" target="_blank">
+                ${cardImgHtml}
+                ${cardContent}
+              </a>
+            `;
+          } else {
+            cardsContainer.innerHTML += `
+              <div class="team-card">
+                ${cardImgHtml}
+                ${cardContent}
+              </div>
+            `;
+          }
         }
       });
       cardsContainer.style.opacity = 1;
