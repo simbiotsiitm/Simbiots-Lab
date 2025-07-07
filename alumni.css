@@ -251,3 +251,17 @@ body.dark-theme .alumni-card-link {
 body.dark-theme .alumni-card-link:hover {
   background: #ffd700;
 }
+.alumni-card-coord-label {
+  text-align: center;
+  font-weight: 600;
+  margin: 8px 0 4px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+body.light-theme .alumni-card-coord-label {
+  color: #333;
+}
+body.dark-theme .alumni-card-coord-label {
+  color: #ccc;
+}
+
