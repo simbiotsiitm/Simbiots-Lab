@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         return obj;
       });
-      // Skip header row if needed
       alumniData = data[0].name === 'name' ? data.slice(1) : data;
       renderCards('all');
     });
@@ -27,40 +26,43 @@ document.addEventListener("DOMContentLoaded", function() {
       cardsContainer.innerHTML = '';
       let filtered = alumniData;
       if (filter !== 'all') {
-        filtered = alumniData.filter(d =>
-          d.scholar_type &&
-          d.scholar_type.trim().toLowerCase().includes(filter)
-        );
+        filtered = alumniData.filter(d => {
+          if (!d.scholar_type) return false;
+          const type = d.scholar_type.trim().toLowerCase();
+          if (filter === 'phd') return type.includes('phd');
+          if (filter === 'ms') return type.includes('ms');
+          if (filter === 'mtech') return type.includes('mtech');
+          return false;
+        });
       }
-      // ...existing code...
-filtered.forEach(member => {
-  cardsContainer.innerHTML += `
-  <div class="alumni-card-horizontal">
-    <div class="alumni-card-top-row">
-      <div class="alumni-card-photo-col">
-        <img src="${member.image_path}" alt="${member.name}" class="alumni-card-photo" />
-      </div>
-      <div class="alumni-card-info">
-        <div class="alumni-card-name">${member.name || ''}</div>
-        <div class="alumni-card-meta">
-          ${member.scholar_type || ''}${member.year_of_graduation ? ' · ' + member.year_of_graduation : ''}
+      filtered.forEach(member => {
+        cardsContainer.innerHTML += `
+        <div class="alumni-card-horizontal">
+          <div class="alumni-card-top-row">
+            <div class="alumni-card-photo-col">
+              <img src="${member.image_path}" alt="${member.name}" class="alumni-card-photo" />
+            </div>
+            <div class="alumni-card-info">
+              <div class="alumni-card-name">${member.name || ''}</div>
+              <div class="alumni-card-meta">
+                ${member.scholar_type || ''}${member.year_of_graduation ? ' · ' + member.year_of_graduation : ''}
+              </div>
+              <div class="alumni-card-thesis">“${member.thesis_title || ''}”</div>
+              ${member.co_guide && member.co_guide.trim() !== "" ? `<div class="alumni-card-coguide"><b>Co-guide:</b> ${member.co_guide}</div>` : ''}
+            </div>
+          </div>
+          <div class="alumni-card-coord-label">Current Known Coordinates</div>
+          <div class="alumni-card-coord-row">
+            ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
+            <span class="alumni-card-coord">${member.current_coordinates || ''}</span>
+          </div>
+          <div class="alumni-card-links-row">
+            ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+            ${member.scholar_link ? `<a href="${member.scholar_link}" class="alumni-card-link" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
+          </div>
         </div>
-        <div class="alumni-card-thesis">“${member.thesis_title || ''}”</div>
-        ${member.co_guide && member.co_guide.trim() !== "" ? `<div class="alumni-card-coguide"><b>Co-guide:</b> ${member.co_guide}</div>` : ''}
-      </div>
-    </div>
-    <div class="alumni-card-coord-label">Current Known Coordinates</div>
-    <div class="alumni-card-coord-row">
-      ${member.workplace_logo ? `<img src="${member.workplace_logo}" alt="Workplace" class="alumni-card-workplace-img" />` : ''}
-      <span class="alumni-card-coord">${member.current_coordinates || ''}</span>
-    </div>
-    <div class="alumni-card-links-row">
-      ${member.profile_link ? `<a href="${member.profile_link}" class="alumni-card-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
-      ${member.scholar_link ? `<a href="${member.scholar_link}" class="alumni-card-link" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
-    </div>
-  </div>
-`;
-    });
+        `;
+      });
       cardsContainer.style.opacity = 1;
     }, 200);
   }
