@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
         filtered = alumniData.filter(d => {
           if (!d.scholar_type) return false;
           const type = d.scholar_type.trim().toLowerCase();
-          if (filter === 'phd') return type.includes('phd');
-          if (filter === 'ms') return type.includes('ms');
+          if (filter === 'phd scholar') return type.includes('phd');
+          if (filter === 'ms scholar') return type.includes('ms');
           if (filter === 'mtech') return type.includes('mtech');
           return false;
         });
