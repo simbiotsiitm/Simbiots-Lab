@@ -48,81 +48,85 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
   function renderCards(filter) {
-    cardsContainer.style.opacity = 0.3;
-    setTimeout(() => {
-      cardsContainer.innerHTML = '';
-      let filtered = teamData;
-      if (filter !== 'all') {
-        if (filter === 'phd') {
-          filtered = teamData.filter(d =>
-            d.designation &&
-            d.designation.trim().toLowerCase() === 'phd'
+  cardsContainer.style.opacity = 0.3;
+  setTimeout(() => {
+    cardsContainer.innerHTML = '';
+    let filtered = teamData;
+    if (filter !== 'all') {
+      if (filter === 'phd') {
+        filtered = teamData.filter(d =>
+          d.designation &&
+          d.designation.trim().toLowerCase() === 'phd scholar'
+        );
+      } else if (filter === 'ms') {
+        filtered = teamData.filter(d =>
+          d.designation &&
+          d.designation.trim().toLowerCase() === 'ms scholar'
+        );
+      } else if (filter === 'mtechdual') {
+        filtered = teamData.filter(d => {
+          if (!d.designation) return false;
+          const desig = d.designation.trim().toLowerCase();
+          return (
+            desig === 'mtech' ||
+            desig === 'dual degree' ||
+            desig === 'mtech/dd' ||
+            desig === 'mtech/dual degree'
           );
-        } else if (filter === 'ms') {
-          filtered = teamData.filter(d =>
-            d.designation &&
-            (d.designation.trim().toLowerCase() === 'ms' || d.designation.trim().toLowerCase() === 'ms scholar')
+        });
+      } else if (filter === 'others') {
+        filtered = teamData.filter(d => {
+          if (!d.designation) return false;
+          const desig = d.designation.trim().toLowerCase();
+          return (
+            desig.includes('intern') ||
+            desig === 'other' ||
+            desig === 'others'
           );
-        } else if (filter === 'mtechdual') {
-          filtered = teamData.filter(d =>
-            d.designation &&
-            (d.designation.trim().toLowerCase() === 'mtech' ||
-             d.designation.trim().toLowerCase() === 'dual degree' ||
-             d.designation.trim().toLowerCase() === 'mtech/dd' ||
-             d.designation.trim().toLowerCase() === 'mtech/dual degree')
-          );
-        } else if (filter === 'others') {
-          filtered = teamData.filter(d =>
-            d.designation &&
-            (
-              d.designation.trim().toLowerCase().includes('intern') ||
-              d.designation.trim().toLowerCase() === 'other' ||
-              d.designation.trim().toLowerCase() === 'others'
-            )
-          );
-        }
+        });
       }
-      filtered.forEach(member => {
-        const isIntern = (member.designation && member.designation.trim().toLowerCase().includes('intern')) || member.intern_year;
-        const cardImgHtml = `
-          <div class="team-card-img-wrap">
-            <img src="${member.image_path}" alt="${member.name}" class="team-card-img" onclick="maximizeImage('${member.image_path}', '${member.name}')"/>
+    }
+    filtered.forEach(member => {
+      const isIntern = (member.designation && member.designation.trim().toLowerCase().includes('intern')) || member.intern_year;
+      const cardImgHtml = `
+        <div class="team-card-img-wrap">
+          <img src="${member.image_path}" alt="${member.name}" class="team-card-img" onclick="maximizeImage('${member.image_path}', '${member.name}')"/>
+        </div>
+      `;
+      let nameHtml = member.name;
+      if (member.profile_link) {
+        nameHtml = `<a href="${member.profile_link}" target="_blank" style="color:inherit;text-decoration:underline;">${member.name}</a>`;
+      }
+      if (isIntern) {
+        cardsContainer.innerHTML += `
+          <div class="team-card intern-card">
+            ${cardImgHtml}
+            <div class="team-card-content">
+              <div class="team-card-name">${nameHtml}</div>
+              <div class="team-card-intern-year">${member.intern_year || ''}</div>
+              <div class="team-card-college">${member.college_name || ''}</div>
+            </div>
           </div>
         `;
-        let nameHtml = member.name;
-        if (member.profile_link) {
-          nameHtml = `<a href="${member.profile_link}" target="_blank" style="color:inherit;text-decoration:underline;">${member.name}</a>`;
-        }
-        if (isIntern) {
-          cardsContainer.innerHTML += `
-            <div class="team-card intern-card">
-              ${cardImgHtml}
-              <div class="team-card-content">
-                <div class="team-card-name">${nameHtml}</div>
-                <div class="team-card-intern-year">${member.intern_year || ''}</div>
-                <div class="team-card-college">${member.college_name || ''}</div>
-              </div>
-            </div>
-          `;
-        } else {
-          const cardContent = `
-            <div class="team-card-content">
-              <div class="team-card-designation">${member.designation}</div>
-              <div class="team-card-name">${nameHtml}</div>
-              <div class="team-card-work">${member.work_heading}</div>
-            </div>
-          `;
-          cardsContainer.innerHTML += `
-            <div class="team-card">
-              ${cardImgHtml}
-              ${cardContent}
-            </div>
-          `;
-        }
-      });
-      cardsContainer.style.opacity = 1;
-    }, 200);
-  }
+      } else {
+        const cardContent = `
+          <div class="team-card-content">
+            <div class="team-card-designation">${member.designation}</div>
+            <div class="team-card-name">${nameHtml}</div>
+            <div class="team-card-work">${member.work_heading}</div>
+          </div>
+        `;
+        cardsContainer.innerHTML += `
+          <div class="team-card">
+            ${cardImgHtml}
+            ${cardContent}
+          </div>
+        `;
+      }
+    });
+    cardsContainer.style.opacity = 1;
+  }, 200);
+}
 
   btns.forEach(btn => {
     btn.addEventListener('click', function() {
