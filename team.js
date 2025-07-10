@@ -53,21 +53,32 @@ document.addEventListener("DOMContentLoaded", function() {
       cardsContainer.innerHTML = '';
       let filtered = teamData;
       if (filter !== 'all') {
-        if (filter === 'intern') {
+        if (filter === 'phd') {
           filtered = teamData.filter(d =>
             d.designation &&
-            d.designation.trim().toLowerCase().includes('intern')
+            d.designation.trim().toLowerCase() === 'phd'
+          );
+        } else if (filter === 'ms') {
+          filtered = teamData.filter(d =>
+            d.designation &&
+            (d.designation.trim().toLowerCase() === 'ms' || d.designation.trim().toLowerCase() === 'ms scholar')
+          );
+        } else if (filter === 'mtechdual') {
+          filtered = teamData.filter(d =>
+            d.designation &&
+            (d.designation.trim().toLowerCase() === 'mtech' ||
+             d.designation.trim().toLowerCase() === 'dual degree' ||
+             d.designation.trim().toLowerCase() === 'mtech/dd' ||
+             d.designation.trim().toLowerCase() === 'mtech/dual degree')
           );
         } else if (filter === 'others') {
-          const othersList = ['mtech', 'dual degree', 'others'];
           filtered = teamData.filter(d =>
             d.designation &&
-            othersList.some(val => d.designation.trim().toLowerCase().includes(val))
-          );
-        } else {
-          filtered = teamData.filter(d =>
-            d.designation &&
-            d.designation.trim().toLowerCase().includes(filter)
+            (
+              d.designation.trim().toLowerCase().includes('intern') ||
+              d.designation.trim().toLowerCase() === 'other' ||
+              d.designation.trim().toLowerCase() === 'others'
+            )
           );
         }
       }
