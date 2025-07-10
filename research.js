@@ -67,20 +67,20 @@ const researchData = {
     subtitle: "Explore our impactful research in Thermal Sciences",
     cards: [
       {
-        title: "Thermal Conductivity",
-        text: "Advanced simulations of thermal flow in biomedical devices.",
+        title: "Flow Boiling",
+        text: "We investigate flow boiling phenomena in microscale channels to improve heat dissipation in compact systems, with applications in electronics cooling and biomedical devices.",
         mediaType: "img",
         mediaSrc: "images/heat1.png",
       },
       {
-        title: "Convection Modeling",
-        text: "Studying heat transfer in complex geometries.",
+        title: "Conductive Heat Transfer",
+        text: "Our research focuses on the fundamentals of heat conduction through biological tissues and materials, aiding in the design of devices where passive heat transfer plays a critical role.",
         mediaType: "gif",
         mediaSrc: "images/convection.gif",
       },
       {
-        title: "Cooling Mechanisms",
-        text: "Optimization of cooling strategies in biomedical applications.",
+        title: "Battery Thermal Management Systems for Electric Vechicles",
+        text: "We develop and optimize thermal management systems for EV batteries to ensure operational safety, enhance performance, and extend battery lifespan under dynamic conditions.",
         mediaType: "video",
         mediaSrc: "videos/cooling.mp4",
       },
