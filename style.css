@@ -1395,3 +1395,22 @@ body.dark-theme .contact-link:hover {
     transform: translateX(-50%);
   }
 }
+
+body.light-theme .carousel-card {
+  border-radius: 22px;
+  border: 1.5px solid #b388ff;
+  box-shadow: 0 0 18px 2px #e0e7ff88, 0 2px 8px #b388ff33;
+}
+
+body.light-theme .carousel-card.center {
+  border: 2.5px solid #7f5fff;
+  box-shadow: 0 0 32px 4px #b388ff66, 0 4px 16px #7f5fff33;
+}
+
+body.light-theme .carousel-card.center:hover,
+body.light-theme .carousel-card:hover {
+  box-shadow: 0 0 48px 8px #b388ff99, 0 4px 24px #7f5fff55;
+  border-color: #7f5fff;
+  z-index: 3;
+  transform: scale(1.09) translateY(-16px) rotateY(2deg);
+}
