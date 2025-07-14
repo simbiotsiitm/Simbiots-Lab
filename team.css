@@ -27,7 +27,7 @@ body {
   align-items: center;
 }
 .team-title {
-  font-family: 'Montserrat', 'Bree Serif', serif;
+  font-family: 'Montserrat', 'Bree Serif', serif !important;
   font-size: 2.8rem;
   margin: 0;
   letter-spacing: 2px;
