@@ -59,7 +59,7 @@ body.dark-theme {
   font-size: 2.5rem;
   position: relative;
   color: #fff;
-  /*background: linear-gradient(90deg, #fff 10%, #ffd700 40%, #fff 60%);*/
+  background: linear-gradient(90deg, #fff 10%, #ffd700 40%, #fff 60%);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
