@@ -23,6 +23,13 @@ body {
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Nebulosa Solid';
+  src: url('fonts/NebulosaSolid.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 body.dark-theme {
   background: #242323;
   background-attachment: fixed;
@@ -549,8 +556,8 @@ body.light-theme .hero-video-section video {
 .hero-morph-text {
   font-size: 3.8rem;
   font-weight: 900;
-  letter-spacing: 2px;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Nebulosa Solid', 'Bree Serif', 'Roboto', serif;
+  letter-spacing: 0.04em;
   position: relative;
 }
 .hero-morph-text span {
