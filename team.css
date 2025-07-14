@@ -87,7 +87,7 @@ body.light-theme .navbar-title {
   color: #003b5e;
 }
 body.light-theme .team-title {
-  background: linear-gradient(90deg, #1fa2ff, #12d8fa, #a6ffcb, #ff512f, #dd2476);
+  background: linear-gradient(90deg, #035086, #0c1fc7, #02682c, #ff512f, #dd2476);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
