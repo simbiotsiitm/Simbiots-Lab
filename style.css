@@ -47,7 +47,7 @@ body.dark-theme {
   pointer-events: none;
   transition: opacity 0.8s;
 }
-.splash-text {
+/*.splash-text {
   font-family: 'Bree Serif', serif;
   font-size: 2.5rem;
   letter-spacing: 2px;
@@ -60,7 +60,7 @@ body.dark-theme {
   -webkit-text-fill-color: transparent;
   animation: shimmer 3.5s linear forwards;
   /* fallback for non-webkit browsers */
-}
+}*/
 .splash-logo {
   width:30px; animation: rotateZoom 4s ease forwards;
 }
