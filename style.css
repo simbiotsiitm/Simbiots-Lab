@@ -16,6 +16,12 @@ body {
   background-attachment: fixed;
   transition: background 0.5s;
 }
+@font-face {
+  font-family: 'Nebulosa Stencil';
+  src: url('fonts/NebulosaStencil.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 body.dark-theme {
   background: #242323;
   background-attachment: fixed;
@@ -1426,4 +1432,10 @@ body.light-theme .carousel-card:hover {
     width: 38px;
     height: 38px;
   }
+}
+.team-title,
+.lab-abbr-text,
+.splash-text {
+  font-family: 'Nebulosa Stencil', 'Bree Serif', 'Roboto', serif;
+  letter-spacing: 0.04em;
 }
