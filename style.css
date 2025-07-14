@@ -21,6 +21,7 @@ body {
   src: url('fonts/NebulosaStencil.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 body.dark-theme {
   background: #242323;
@@ -1434,5 +1435,4 @@ body.light-theme .carousel-card:hover {
 .lab-abbr-text,
 .splash-text {
   font-family: 'Nebulosa Stencil', 'Bree Serif', 'Roboto', serif;
-  letter-spacing: 0.04em;
 }
