@@ -2,7 +2,7 @@ const researchData = {
   cardio: {
     bgImg: "images/research/heart.gif",
     bgVideo: "images/research/heart.gif",
-    subtitle: "Explore our impactful research in Cardio Vascular Science",
+    subtitle: "Explore our impactful research in Cardiovascular Science",
     cards: [
       {
         title: "Structural Heart Defects",
@@ -33,7 +33,7 @@ const researchData = {
   cerebro: {
     bgImg: "images/research/brain.gif",
     bgVideo: "images/research/brain.gif",
-    subtitle: "Explore our impactful research in Cerebro Vascular Science",
+    subtitle: "Explore our impactful research in Cerebrovascular Science",
     cards: [
       {
         title: "Aneurysms",
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       heroVideo.pause();
       heroVideoSource.src = "";
       heroSubtitle.textContent = researchData.cardio.subtitle;
-      heroHeading.textContent = "Cardio Vascular Research";
+      heroHeading.textContent = "Cardiovascular Research";
     } else if (filter === "cerebro") {
       heroImage.style.display = "block";
       heroImage.src = researchData.cerebro.bgImg;
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
       heroVideo.pause();
       heroVideoSource.src = "";
       heroSubtitle.textContent = researchData.cerebro.subtitle;
-      heroHeading.textContent = "Cerebro Vascular Research";
+      heroHeading.textContent = "Cerebrovascular Research";
     } else if (filter === "heat") {
       heroImage.style.display = "none";
       heroVideoSource.src = researchData.heat.bgVideo;
