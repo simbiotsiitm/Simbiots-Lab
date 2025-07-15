@@ -42,7 +42,7 @@ const researchData = {
         mediaSrc: "images/research/aneurysm.png",
       },
       {
-        title: "Moyamoya Disease (MMA)",
+        title: "Moyamoya Angiopathy (MMA)",
         text: "Our work focuses on altered blood flow patterns in Moyamoya disease, using imaging and computational tools to support early diagnosis and revascularization strategies.",
         mediaType: "img",
         mediaSrc: "images/research/moya.jpeg",
@@ -73,14 +73,14 @@ const researchData = {
         mediaSrc: "images/heat1.png",
       },
       {
-        title: "Conductive Heat Transfer",
-        text: "Our research focuses on the fundamentals of heat conduction through biological tissues and materials, aiding in the design of devices where passive heat transfer plays a critical role.",
+        title: "Convective Heat Transfer",
+        text: "Resolving the convective HTC for rod bundle heat transfer using full scale CFD simulations as well as sub-channel analysis.",
         mediaType: "gif",
         mediaSrc: "images/convection.gif",
       },
       {
-        title: "Battery Thermal Management Systems for Electric Vechicles",
-        text: "We develop and optimize thermal management systems for EV batteries to ensure operational safety, enhance performance, and extend battery lifespan under dynamic conditions.",
+        title: "Battery Thermal Management Systems (BTMS) for Electric Vechicles",
+        text: "We study thermal management issues of concern to EV batteries and design of cold plate and their packing to achieve enhanced thermal performance.",
         mediaType: "video",
         mediaSrc: "videos/cooling.mp4",
       },
