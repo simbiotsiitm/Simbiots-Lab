@@ -6,13 +6,13 @@ const researchData = {
     cards: [
       {
         title: "Structural Heart Defects",
-        text: "We study congenital and acquired heart defects using simulations and imaging to support clinical decision-making and improve surgical outcomes.",
+        text: "We study congenital and acquired heart defects using simulations and imaging to support clinical decision-making and improve surgical outcomes for patient specific conditions.",
         mediaType: "gif",
         mediaSrc: "images/heart.gif",
       },
       {
         title: "Percutaneous Ventricular Assist Devices (PVADs)",
-        text: "Our research develops and optimizes PVADs to provide mechanical circulatory support for patients with severe heart failure, aiming for improved function and biocompatibility.",
+        text: "The objective is to design and perform CFD analysis to develop smallest possible micro-pump for percutaneous support to avoid cardiogenic shock during surgery.",
         mediaType: "img",
         mediaSrc: "images/research/pvad.jpeg",
       },
