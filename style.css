@@ -1529,3 +1529,10 @@ body.light-theme .carousel-card:hover {
     margin-bottom: 14px;
   }
 }
+.lab-quote-translation {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 1rem;
+  color: #888;
+  font-style: italic;
+}
