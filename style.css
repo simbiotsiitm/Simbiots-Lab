@@ -840,7 +840,6 @@ body.dark-theme .lab-abbr-text span {
 }
 
 .lab-quote::before, .lab-quote::after {
-  content: '"';
   font-size: 2.5rem;
   color: #b721ff;
   opacity: 0.25;
