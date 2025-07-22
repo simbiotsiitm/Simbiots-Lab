@@ -2,7 +2,6 @@ const researchData = {
   cardio: {
     bgImg: "images/research/heart.gif",
     bgVideo: "images/research/heart.gif",
-    subtitle: "Explore our impactful research in Cardiovascular Science",
     cards: [
       {
         title: "Structural Heart Defects",
@@ -33,7 +32,6 @@ const researchData = {
   cerebro: {
     bgImg: "images/research/brain.gif",
     bgVideo: "images/research/brain.gif",
-    subtitle: "Explore our impactful research in Cerebrovascular Science",
     cards: [
       {
         title: "Aneurysms",
@@ -64,7 +62,6 @@ const researchData = {
   heat: {
     bgImg: "images/heat-bg.jpg",
     bgVideo: "videos/heat-transfer.mp4",
-    subtitle: "Explore our impactful research in Thermal Sciences",
     cards: [
       {
         title: "Flow Boiling",
