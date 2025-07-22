@@ -47,7 +47,7 @@ const researchData = {
       },
       {
         title: "Arteriovenous Malformations (AVMs)",
-        text: "We study the complex structure and hemodynamics of AVMs to evaluate hemorrhagic risk and personalize therapeutic approaches.",
+        text: "We study the complex anatomical structures and its relation to hemodynamics of AVMs to evaluate hemorrhagic risk and personalize therapeutic approaches.",
         mediaType: "img",
         mediaSrc: "images/research/avm.jpg",
       },
