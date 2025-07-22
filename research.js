@@ -67,7 +67,7 @@ const researchData = {
         title: "Flow Boiling",
         text: "We investigate flow boiling phenomena in microscale channels to improve heat dissipation in compact systems, with applications in electronics cooling and biomedical devices.",
         mediaType: "img",
-        mediaSrc: "images/heat1.png",
+        mediaSrc: "Publicationimages/publicationimage-9.jpg",
       },
       {
         title: "Convective Heat Transfer",
