@@ -1447,7 +1447,7 @@ body.light-theme .carousel-card:hover {
   font-family: 'Nebulosa Stencil', 'Bree Serif', 'Roboto', serif;
 }
 .splash-img-animated {
-  width: 90vw;
+  width: 100vw;
   max-width: 340px;
   min-width: 180px;
   opacity: 0;
@@ -1457,7 +1457,7 @@ body.light-theme .carousel-card:hover {
   animation: splashGrow 3.5s cubic-bezier(.23,1.02,.58,1) forwards, splashReveal 2.8s 0.5s cubic-bezier(.23,1.02,.58,1) forwards;
   position: relative;
   z-index: 2;
-  transition: width 0.7s cubic-bezier(.23,1.02,.58,1);
+  transition: width 0.5s cubic-bezier(.23,1.02,.58,1);
 }
 
 @keyframes splashGrow {
