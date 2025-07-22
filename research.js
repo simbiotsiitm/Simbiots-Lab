@@ -72,14 +72,14 @@ const researchData = {
       {
         title: "Convective Heat Transfer",
         text: "Resolving the convective HTC for rod bundle heat transfer using full scale CFD simulations as well as sub-channel analysis.",
-        mediaType: "gif",
-        mediaSrc: "images/convection.gif",
+        mediaType: "img",
+        mediaSrc: "images/convective.jpeg",
       },
       {
         title: "Battery Thermal Management Systems (BTMS) for Electric Vechicles",
         text: "We study thermal management issues of concern to EV batteries and design of cold plate and their packing to achieve enhanced thermal performance.",
-        mediaType: "video",
-        mediaSrc: "videos/cooling.mp4",
+        mediaType: "img",
+        mediaSrc: "images/btms.jpeg",
       },
     ],
   },
