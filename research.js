@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroImage = document.getElementById("hero-image");
   const heroVideo = document.getElementById("hero-video");
   const heroVideoSource = heroVideo.querySelector("source");
-  const heroSubtitle = document.getElementById("hero-subtitle");
   const filterButtons = document.querySelectorAll(".filter-btn");
   const cardList = document.getElementById("card-list");
   const backBtn = document.getElementById("back-btn");
@@ -129,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
       heroVideo.style.display = "none";
       heroVideo.pause();
       heroVideoSource.src = "";
-      heroSubtitle.textContent = "Explore our impactful research";
       heroHeading.textContent = "OUR RESEARCH";
     } else if (filter === "cardio") {
       heroImage.style.display = "block";
@@ -137,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
       heroVideo.style.display = "none";
       heroVideo.pause();
       heroVideoSource.src = "";
-      heroSubtitle.textContent = researchData.cardio.subtitle;
       heroHeading.textContent = "Cardiovascular Research";
     } else if (filter === "cerebro") {
       heroImage.style.display = "block";
@@ -145,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
       heroVideo.style.display = "none";
       heroVideo.pause();
       heroVideoSource.src = "";
-      heroSubtitle.textContent = researchData.cerebro.subtitle;
       heroHeading.textContent = "Cerebrovascular Research";
     } else if (filter === "heat") {
       heroImage.style.display = "none";
@@ -153,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
       heroVideo.load();
       heroVideo.style.display = "block";
       heroVideo.play();
-      heroSubtitle.textContent = researchData.heat.subtitle;
       heroHeading.textContent = "Heat Transfer Research";
     }
   }
