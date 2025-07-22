@@ -67,7 +67,9 @@ body.dark-theme {
   animation: shimmer 3.5s linear forwards;
 }
 .splash-logo {
-  width:40px; animation: rotateZoom 4s ease forwards;
+  width:40px; 
+  margin-bottom:24px;
+  animation: rotateZoom 4s ease forwards;
 }
 @keyframes shimmer {
   0% {
