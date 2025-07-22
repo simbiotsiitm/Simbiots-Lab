@@ -36,8 +36,8 @@ const researchData = {
       {
         title: "Aneurysms",
         text: "We model and analyze cerebral aneurysms to assess rupture risk and assist in optimizing interventions like coiling or surgical clipping.",
-        mediaType: "img",
-        mediaSrc: "images/research/aneurysm.png",
+        mediaType: "gif",
+        mediaSrc: "images/research/aneurysms.gif",
       },
       {
         title: "Moyamoya Angiopathy (MMA)",
