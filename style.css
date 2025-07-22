@@ -1454,7 +1454,7 @@ body.light-theme .carousel-card:hover {
   display: block;
   margin: 0 auto;
   filter: drop-shadow(0 4px 24px #0008);
-  animation: splashGrow 3.5s cubic-bezier(.23,1.02,.58,1) forwards, splashReveal 3.5s 1.2s cubic-bezier(.23,1.02,.58,1) forwards;
+  animation: splashGrow 3.5s cubic-bezier(.23,1.02,.58,1) forwards, splashReveal 2.8s 0.5s cubic-bezier(.23,1.02,.58,1) forwards;
   position: relative;
   z-index: 2;
   transition: width 0.7s cubic-bezier(.23,1.02,.58,1);
