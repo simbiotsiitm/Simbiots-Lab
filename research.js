@@ -11,7 +11,7 @@ const researchData = {
       },
       {
         title: "Percutaneous Ventricular Assist Devices (PVADs)",
-        text: "The objective is to design and perform CFD analysis to develop smallest possible micro-pump for percutaneous support to avoid cardiogenic shock during surgery.",
+        text: "The objective is to design and develop a smallest possible micro-pump for percutaneous support to avoid cardiogenic shock during surgery (by performing CFD/FSI simulations.",
         mediaType: "img",
         mediaSrc: "images/research/pvad.jpeg",
       },
@@ -41,7 +41,7 @@ const researchData = {
       },
       {
         title: "Moyamoya Angiopathy (MMA)",
-        text: "Our work focuses on altered blood flow patterns in Moyamoya disease, using imaging and computational tools to support early diagnosis and revascularization strategies.",
+        text: "Our work focuses on understanding altered blood flow patterns in Moyamoya disease, using imaging and computational tools to support early diagnosis and revascularization strategies.",
         mediaType: "img",
         mediaSrc: "images/research/moya.jpeg",
       },
