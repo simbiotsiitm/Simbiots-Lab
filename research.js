@@ -11,7 +11,7 @@ const researchData = {
       },
       {
         title: "Percutaneous Ventricular Assist Devices (PVADs)",
-        text: "The objective is to design and develop a smallest possible micro-pump for percutaneous support to avoid cardiogenic shock during surgery (by performing CFD/FSI simulations.",
+        text: "The objective is to design and develop a smallest possible micro-pump for percutaneous support to avoid cardiogenic shock during surgery (by performing CFD/FSI simulations).",
         mediaType: "img",
         mediaSrc: "images/research/pvad.jpeg",
       },
