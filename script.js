@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const news = [
     { logo: 'images/home/collegechalo.png', headline: 'IIT Madras Study Shows How Active Flow Control Technology', source: 'College Chalo', date: 'April 2026',link:'https://www.collegechalo.com/news/iit-madras-study-shows-active-flow'},
+    { logo: 'images/home/infodea.png', headline: 'Rotating Cylinder Innovation May Make Cars More Aerodynamic and Fuel Efficient', source: 'Infodea', date: 'April 2026',link:'https://infodea.in/lounge/food-travel/rotating-cylinder-innovation-may-make-cars-more-aerodynamic-and-fuel-efficient/'},
     { logo: 'images/home/neurology.png', headline: 'Doctor,will my aneurysm rupture', source: 'Neurology India', date: 'March 2025',link:'https://journals.lww.com/neur/fulltext/2025/03000/doctor,_will_my_aneurysm_rupture_.1.aspx'},
     { logo: 'images/home/techtalk.png', headline: 'The Cerebral Circulation : No Flow, No Life', source: 'IIT M TECH TALK', date: 'December 2023',link:'https://tech-talk.iitm.ac.in/the-cerebral-circulation-no-flow-no-life/'},
     { logo: 'images/home/neuro_news.jpg', headline: 'Mathematical model examines factors influencing risk of cerebral aneurysm rupture.', source: 'Neuro News', date: '06 Jan 2023',link:'https://neuronewsinternational.com/mathematical-model-examines-factors-influencing-risk-of-cerebral-aneurysm-rupture/' },
